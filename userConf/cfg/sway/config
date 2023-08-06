@@ -1,0 +1,19 @@
+# LukaszPe sway cfg
+
+# Include cfg files
+#Whole config is in separate files
+include cfg/00_IOInit
+include cfg/01_color
+include cfg/02_fonts
+include cfg/03_autostart
+include cfg/04_icons
+include cfg/05_theme
+include cfg/06_rofi
+include cfg/07_workspaces
+include cfg/08_navigation
+include cfg/09_programs
+include cfg/10_win_resize_and_gaps
+include cfg/11_session_mgmt
+include cfg/12_system_mgmt
+include cfg/13_workspace_mgmt
+include cfg/14_bar

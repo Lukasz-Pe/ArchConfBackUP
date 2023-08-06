@@ -1,0 +1,7 @@
+set $rofi_theme                 rofi_theme
+set $rofi_font                  typeface_rofi
+set $rofi_show_icons            true
+set $rofi_icon_theme            icon_theme
+set $rofi_drun_display_format   "{name}"
+set $rofi_window_format         \ {n} {t}
+set $rofi_modi                  window,drun,run

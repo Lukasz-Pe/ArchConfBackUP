@@ -1,0 +1,17 @@
+#!/bin/bash
+
+LABEL_ICON=${icon:-$(xrdb -query | grep "i3xrocks.label.layout_change" | cut -f 2)}
+CMD=$(xkblayout-state print "%s(%e)")
+
+case $CMD in
+ "pl(pl)")
+  COLOR=#FF0000
+ ;;
+ "de(us)")
+  COLOR=#FFFF00 
+ ;;
+esac
+
+i3-msg "exec pkill -SIGRTMIN+20 i3blocks" > /dev/null
+
+echo "<span color=\"$COLOR\">$LABEL_ICON $CMD</span>"

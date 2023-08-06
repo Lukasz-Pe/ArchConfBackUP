@@ -1,0 +1,39 @@
+###############################################################################
+# System Management
+###############################################################################
+
+## Modify // Settings // <> c ##
+#set $binding_settings c
+#set $program_settings program_settings gnome-control-center --class=floating_window
+#bindsym $mod+$binding_settings exec $program_settings
+
+## Modify // Display Settings // <> d ##
+#set $binding_display binding_display d
+#set $program_display program_display gnome-control-center --class=floating_window display
+#bindsym $mod+$binding_display exec $program_display
+
+## Modify // Wifi Settings // <> w ##
+#set $binding_wifi binding_wifi w
+#set $program_wifi program_wifi gnome-control-center --class=floating_window wifi
+#bindsym $mod+$binding_wifi exec $program_wifi
+
+## Modify // Bluetooth Settings // <> b ##
+#set $binding_bluetooth binding_bluetooth b
+#set $program_bluetooth program_bluetooth gnome-control-center --class=floating_window bluetooth
+#bindsym $mod+$binding_bluetooth exec $program_bluetooth
+
+## Modify // Sound Settings // <> s ##
+#set $binding_sound binding_sound s
+#set $program_sound program_sound gnome-control-center --class=floating_window sound
+#bindsym $mod+$binding_sound exec $program_sound
+
+## Launch // File Browser // <><Shift> n ##
+#set $binding_files binding_files Shift+n
+#set $program_files program_files /usr/bin/nautilus --new-window
+#bindsym $mod+$binding_files exec $program_files
+
+## Launch // Notification Viewer // <> n ##
+set $binding_notification_ui n
+#set $program_notification_ui swaync-client -t
+set $program_notification_ui rofication-gui-lukaszpe.py
+bindsym $mod+$binding_notification_ui exec $program_notification_ui $theme_rofi

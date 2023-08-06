@@ -1,0 +1,14 @@
+# Colors definition
+set $color_black    #000000
+set $color_white    #FFFFFF
+set $color_red      #ff0000
+set $color_green    #00ff00
+set $color_blue     #0000ff
+set $color_cyan     #95e6cb
+set $color_magenta  #f28779
+set $color_orange   #e6b450
+set $color_violet   #B48EAD
+set $color_yellow   #ffd580
+# Arch colors
+set $color_arch_fg  #1793d1
+set $color_arch_bg  #333333

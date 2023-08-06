@@ -1,0 +1,223 @@
+{
+// Modules
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "{icon} {capacity}% ({time})",
+		"format-charging": " {capacity}% ({time})",
+		"format-charging-full": " {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
+	"clock#time": {
+		"interval": 1,
+		"format": "{:%H:%M:%OS}",
+		"tooltip": false,
+		"on-click": "swaymsg workspace number 4",
+		"on-click-right": "swaymsg workspace back_and_forth"
+	},
+
+	"clock#date": {
+		"interval": 20,
+		"format": "{:%a, %e %b %Y}",
+		"tooltip": false,
+		"on-click": "swaymsg workspace number 4",
+		"on-click-right": "swaymsg workspace back_and_forth"
+		//"tooltip-format": "{:%e %B %Y}"
+	},
+
+	"cpu": {
+		"interval": 1,
+		"tooltip": false,
+		"format": " {usage}%",
+		"format-alt": " {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"sway/language": {
+		"format": " {}",
+		"min-length": 5,
+		"on-click": "swaymsg 'input * xkb_switch_layout next'",
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": " {}%",
+		"format-alt": " {used: .1f}G/{total: .1f}G",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		},
+		"tooltip": false
+	},
+
+	"network": {
+		"interval": 5,
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-ethernet": " {ifname}",
+		"format-disconnected": "No connection",
+		"format-alt": " {ipaddr}/{cidr}",
+		"tooltip": false
+	},
+
+	"sway/mode": {
+		"format": "{}",
+		"tooltip": false
+	},
+
+	"sway/window": {
+		"format": " {}",
+		"max-length": 30,
+		"tooltip": false
+	},
+
+	"sway/workspaces": {
+		"disable-scroll-wraparound": true,
+		"smooth-scrolling-threshold": 1,
+		"enable-bar-scroll": true,
+		"format": "{name}"
+	},
+
+	"pulseaudio": {
+		"interval":1,
+		"scroll-step": 1,
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "{icon} {volume}%",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"on-click": "pavucontrol"
+	},
+
+	"temperature": {
+		"thermal-zone": 1,
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": "{icon} {temperatureC}°",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
+	"custom/alsa": {
+		"exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/ muted/p; s/.*\\[(.*%)\\].*/ \\1/p'",
+		"on-click": "amixer set Master toggle",
+		"on-scroll-up": "amixer set Master 1+",
+		"on-scroll-down": "amixer set Master 1-",
+		"signal": 11,
+		"interval": 10,
+		"tooltip": false
+	},
+
+	"sndio": {
+		"format": " {}%"
+	},
+
+	"tray": {
+		"icon-size": 18
+		//"spacing": 10
+	},
+	"custom/notification": {
+		"interval":1,
+		"exec": "~/.config/waybar/not",
+		//"on-click":"swaync-client -t",
+		"on-click":"rofication-gui-lukaszpe.py ~/.config/sway/cfg/rofi.rasi",
+		"tooltip": false
+	},
+	"custom/updates": {
+		//"interval":"once",
+		"restart-interval":3600,
+		"exec-if": "exit 0",
+		"exec": "~/.config/waybar/update",
+		"on-click":"alacritty",
+		"signal":10,
+		"tooltip": false,
+		"return-type":"json",
+		"format":"{icon} {}",
+		"format-icons":{
+			"none":"",
+			"some":""
+		}
+	},
+	"custom/separator": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowleft": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowright": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowleftbbg": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowrightbbg": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowleft_black": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowright_black": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowleft_blackbbg": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowright_blackbbg": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowleft_red": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowright_red": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowleft_redbbg": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/arrowright_redbbg": {
+		"format": "",
+		"tooltip": false
+	}
+}

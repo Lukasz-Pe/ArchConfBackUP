@@ -1,0 +1,34 @@
+{
+// Side monitors
+"layer": "top",
+"position": "top",
+"output":"!HDMI-A-1",
+
+
+"modules-left": [
+	"sway/mode",
+	"sway/workspaces",
+	"custom/arrowright_black",
+	"sway/window"
+],
+
+"modules-center": [
+	"custom/arrowleft_red",
+	"clock#date",
+	"clock#time",
+	"custom/arrowright_red",
+],
+
+"modules-right": [
+	"custom/arrowleft",
+	"custom/notification",
+	"custom/separator",
+	"memory",
+	"custom/separator",
+	"cpu",
+	"custom/separator",
+	"temperature",
+	"custom/separator",
+	"sway/language",
+],
+}

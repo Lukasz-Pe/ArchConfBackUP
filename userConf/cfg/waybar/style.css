@@ -1,0 +1,278 @@
+/* Keyframes */
+
+@keyframes blink-critical {
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
+}
+
+
+/* Styles */
+
+/* Colors (gruvbox) */
+@define-color yellow	#d79921;
+@define-color purple	#b16286;
+@define-color aqua	#689d6a;
+@define-color brgray	#928374;
+@define-color brred	#fb4934;
+@define-color brgreen	#b8bb26;
+@define-color bryellow	#fabd2f;
+@define-color brblue	#83a598;
+@define-color brpurple	#d3869b;
+@define-color braqua	#8ec07c;
+@define-color bg2	#504945;
+@define-color cyan 	#95E6CB;
+@define-color magenta 	#F28779;
+@define-color violet 	#B48EAD;
+@define-color arch_fg	#1793D1;
+/*@define-color arch_bg	#333333;*/
+@define-color arch_bg	#000000;
+
+
+@define-color warning 	lime;
+@define-color critical	@cyan;
+@define-color mode	yellow;
+@define-color unfocused	black;
+@define-color focused	lime;
+@define-color inactive	red;
+@define-color sound-bg	@arch_bg;
+@define-color sound-fg	red;
+@define-color network-bg	@arch_bg;
+@define-color network-fg	red;
+@define-color memory-bg	@arch_bg;
+@define-color memory-fg	red;
+@define-color cpu-bg	@arch_bg;
+@define-color cpu-fg	red;
+@define-color temp-bg	@arch_bg;
+@define-color temp-fg	red;
+@define-color layout-bg	@arch_bg;
+@define-color layout-fg	red;
+@define-color battery-bg	@arch_bg;
+@define-color battery-fg	red;
+@define-color date-bg	red;
+@define-color date-fg	black;
+@define-color time-bg	red;
+@define-color time-fg	black;
+@define-color bar-bg	rgba(51,51,51,0.5);
+
+/* Reset all styles */
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+/* The whole bar */
+#waybar {
+	background: @bar-bg;/*rgba(40, 40, 40, 0.8784313725);*/ /* #282828e0 */
+	color: red;
+	font-family: MesloLGS NF;
+	font-size: 12pt;
+	/*font-weight: bold;*/
+}
+
+/* Each module */
+#custom-updates,
+#custom-notification,
+#battery,
+#clock,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#custom-alsa,
+#sndio,
+#tray {
+	padding-left: 8pt;
+	padding-right: 8pt;
+}
+
+/* Each critical module */
+#mode,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning.discharging {
+	color: @warning;
+}
+
+/* And now modules themselves in their respective order */
+
+/* Current sway mode (resize etc) */
+#mode {
+	color: white;
+	background: @mode;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+	/*font-weight: bold;*/
+	padding-left: 2pt;
+	padding-right: 2pt;
+	color: red;
+	background: @unfocused;
+}
+
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	color: white;
+	background: @inactive;
+}
+
+/* Active (on focused output) */
+#workspaces button.focused {
+	color: black;
+	background: @focused;
+}
+
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @black;
+	background: @warning;
+}
+
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: black;
+	color: red;
+}
+
+#window {
+	margin-right: 5pt;
+	margin-left: 5pt;
+}
+
+#custom-alsa,
+#pulseaudio,
+#sndio {
+	background: @sound-bg;
+	color: @sound-fg;
+}
+#custom-alsa.muted,
+#pulseaudio.muted,
+#sndio.muted {
+	background: @sound-bg;
+	color: @warning;
+}
+
+#network {
+	background: @network-bg;
+	color: @network-fg;
+}
+
+#memory {
+	background: @memory-bg;
+	color: @memory-fg;
+}
+
+#cpu {
+	background: @cpu-bg;
+	color: @cpu-fg;
+}
+
+#temperature {
+	background: @temp-bg;
+	color: @temp-fg;
+}
+
+#language.pl {
+	background: @layout-bg;
+	color: @layout-fg;
+}
+#language.de {
+	background: @layout-bg;
+	color: yellow;
+}
+
+#battery {
+	background: @battery-bg;
+	color: @battery-fg;
+}
+
+#tray {
+	background: @arch_bg;
+}
+
+#clock.date {
+	background: @date-bg;
+	color: @time-fg;
+}
+
+#clock.time {
+	background: @time-bg;
+	color: @time-fg;
+}
+
+#custom-notification{
+	background: @arch_bg;
+	color:red;
+}
+
+
+#custom-updates{
+        background: @arch_bg;
+}
+#custom-updates.none{
+	color:@inactive;
+}
+#custom-updates.some{
+	color:@warning;
+}
+
+
+#custom-separator {
+	font-size: 12pt;
+	color: @arch_fg;
+	background: @arch_bg;
+}
+#custom-arrowleft,
+#custom-arrowright{
+	color: @arch_bg;
+	background:transparent;
+}
+#custom-arrowleftbbg,
+#custom-arrowrightbbg{
+	color: @arch_bg;
+	background:@bar-bg;
+}
+#custom-arrowleft_red,
+#custom-arrowright_red{
+	color: red;
+	background:transparent;
+}
+#custom-arrowleft_redbbg,
+#custom-arrowright_redbbg{
+	color: black;
+	background:red;
+}
+#custom-arrowleft_black,
+#custom-arrowright_black{
+	color: black;
+	background:transparent;
+}
+#custom-arrowleft_blackbbg,
+#custom-arrowright_blackbbg{
+	color: black;
+	background:@bar-bg;
+}

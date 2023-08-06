@@ -1,0 +1,51 @@
+###############################################################################
+# Window Resize and Gaps
+###############################################################################
+
+set $binding_inc_gaps plus
+set $binding_dec_gaps minus
+
+set $binding_inc_gaps_big Shift+plus
+set $binding_dec_gaps_big Shift+minus
+
+set $gaps 5
+set $big_gaps 10
+
+## Resize // Enter Resize Mode // <> r ##
+mode "Resize Mode" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        ## Resize // Resize Window // ↑ ↓ ← → ##
+        bindsym Left resize shrink width $gaps px or $gaps ppt
+        bindsym Down resize grow height $gaps px or $gaps ppt
+        bindsym Up resize shrink height $gaps px or $gaps ppt
+        bindsym Right resize grow width $gaps px or $gaps ppt
+
+        bindsym Shift+Left resize shrink width $big_gaps px or $big_gaps ppt
+        bindsym Shift+Down resize grow height $big_gaps px or $big_gaps ppt
+        bindsym Shift+Up resize shrink height $big_gaps px or $big_gaps ppt
+        bindsym Shift+Right resize grow width $big_gaps px or $big_gaps ppt
+
+        ## Resize // Resize Window // k j h l ##
+        bindsym $binding_left resize shrink width $gaps px or $gaps ppt
+        bindsym $binding_up resize grow height $gaps px or $gaps ppt
+        bindsym $binding_down resize shrink height $gaps px or $gaps ppt
+        bindsym $binding_right resize grow width $gaps px or $gaps ppt
+
+        bindsym $binding_move_left resize shrink width $big_gaps px or $big_gaps ppt
+        bindsym $binding_move_up resize grow height $big_gaps px or $big_gaps ppt
+        bindsym $binding_move_down resize shrink height $big_gaps px or $big_gaps ppt
+        bindsym $binding_move_right resize grow width $big_gaps px or $big_gaps ppt
+
+        ## Resize // Window Gaps // + - ##
+        bindsym $binding_dec_gaps gaps inner current minus $gaps
+        bindsym $binding_inc_gaps gaps inner current plus $gaps
+        bindsym $binding_dec_gaps_big gaps inner current minus $big_gaps
+        bindsym $binding_inc_gaps_big gaps inner current plus $big_gaps
+
+        ## Resize // Exit Resize Mode // Escape or Enter ##
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "Resize Mode"

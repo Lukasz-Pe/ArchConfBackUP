@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+CNT=$(checkupdates | wc | awk {'print $1'})
+
+BUTTON=${button:-}
+
+if [[ "$CNT" == 0 ]]; then
+ COL=${!C_NOR}
+ ICO=$ICON_NO_UPDATES
+else
+ COL=${!C_CHG}
+ ICO=$ICON_PENDING_UPDATES
+fi
+
+echo "<span color=\"$COL\">$ICO $CNT</span>"
+
+if [ "x${BUTTON}" == "x1" ]; then
+ swaymsg -q "exec alacritty"
+fi

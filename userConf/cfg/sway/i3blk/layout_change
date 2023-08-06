@@ -1,0 +1,17 @@
+#!/bin/bash
+
+LABEL_ICON=$ICON_LAYOUT_CHANGE
+CMD=$(xkblayout-state print "%s(%e)")
+
+case $CMD in
+ "pl(pl)")
+  COLOR=${!C_NOR}
+ ;;
+ "de(us)")
+  COLOR=${!C_DIFF} 
+ ;;
+esac
+
+i3-msg "exec pkill -SIGRTMIN+20 i3blocks" > /dev/null
+
+echo "<span color=\"$COLOR\">$LABEL_ICON $CMD</span>"

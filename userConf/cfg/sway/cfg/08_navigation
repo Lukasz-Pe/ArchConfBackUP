@@ -1,0 +1,237 @@
+###############################################################################
+# Key Mappings
+###############################################################################
+
+# Meta Key - Alt key is Mod1, and Windows key is Mod4
+set $mod  Mod4
+set $alt  Mod1
+
+# press ~ to claim a new workspace
+#bindsym $mod+grave exec --no-startup-id new_wrkspc
+
+# press ~ + Shift to move current container to a new workspace
+#bindsym $mod+Shift+grave exec --no-startup-id new_wrkspc -m
+
+###############################################################################
+# Window and Workspace Navigation
+###############################################################################
+
+## Navigate // Relative Parent // <> a ##/
+set $binding_focus_parent a
+bindsym $mod+$binding_focus_parent focus parent
+
+## Navigate // Relative Child // <> z ##/
+set $binding_focus_child z
+bindsym $mod+$binding_focus_child focus child
+
+## Navigate // Relative Window // <> ↑ ↓ ← → ##
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+## Navigate // Relative Window // <> k j h l ##
+set $binding_left h
+set $binding_right l
+set $binding_up k
+set $binding_down j
+bindsym $mod+$binding_left focus left
+bindsym $mod+$binding_down focus down
+bindsym $mod+$binding_up focus up
+bindsym $mod+$binding_right focus right
+
+## Navigate // Workspaces 1-10 // <> 0__9 ##
+bindsym $mod+$ws1_key workspace number $ws1, move workspace output $MCentralny
+bindsym $mod+$ws2_key workspace number $ws2, move workspace output $MCentralny
+bindsym $mod+$ws3_key workspace number $ws3, move workspace output $MCentralny
+bindsym $mod+$ws4_key workspace number $ws4, move workspace output $MCentralny
+bindsym $mod+$ws5_key workspace number $ws5, move workspace output $MCentralny
+bindsym $mod+$ws6_key workspace number $ws6, move workspace output $MCentralny
+bindsym $mod+$ws7_key workspace number $ws7, move workspace output $MCentralny
+bindsym $mod+$ws8_key workspace number $ws8, move workspace output $MCentralny
+bindsym $mod+$ws9_key workspace number $ws9, move workspace output $MLewy
+bindsym $mod+$ws10_key workspace number $ws10, move workspace output $MPrawy
+## Navigate // Workspace 11 - 19 // <><Ctrl> 1__9 ##
+bindsym $mod+Ctrl+$ws1_key workspace number $ws11
+bindsym $mod+Ctrl+$ws2_key workspace number $ws12
+bindsym $mod+Ctrl+$ws3_key workspace number $ws13
+bindsym $mod+Ctrl+$ws4_key workspace number $ws14
+bindsym $mod+Ctrl+$ws5_key workspace number $ws15
+bindsym $mod+Ctrl+$ws6_key workspace number $ws16
+bindsym $mod+Ctrl+$ws7_key workspace number $ws17
+bindsym $mod+Ctrl+$ws8_key workspace number $ws18
+bindsym $mod+Ctrl+$ws9_key workspace number $ws19
+bindsym $mod+Ctrl+$ws10_key workspace number $ws20
+
+## Navigate // Next Workspace // <> Tab ##
+set $binding_ws_next Tab
+bindsym $mod+$binding_ws_next workspace next
+
+## Navigate // Next Workspace // <><Alt> → ##
+set $binding_ws_next2 Mod1+Right
+bindsym $mod+$binding_ws_next2 workspace next
+
+## Navigate // Next Workspace on Output // <><Ctrl> Tab ##
+set $binding_ws_next_on_output Ctrl+Tab
+bindsym $mod+$binding_ws_next_on_output workspace next_on_output
+
+## Navigate // Next Workspace on Output // <><Ctrl> l ##
+set $binding_ws_next_on_output2 Ctrl+l
+bindsym $mod+$binding_ws_next_on_output2 workspace next_on_output
+
+## Navigate // Previous Workspace // <><Shift> Tab ##
+set $binding_ws_prev Shift+Tab
+bindsym $mod+$binding_ws_prev workspace prev
+
+## Navigate // Previous Workspace // <><Alt> ← ##
+set $binding_ws_prev2 Mod1+Left
+bindsym $mod+$binding_ws_prev2 workspace prev
+
+## Navigate // Previous Workspace on Output // <><Ctrl><Shift> Tab ##
+set $binding_ws_prev_on_output Ctrl+Shift+Tab
+bindsym $mod+$binding_ws_prev_on_output workspace prev_on_output
+
+## Navigate // Previous Workspace on Output // <><Ctrl> h ##
+set $binding_ws_prev_on_output2 Ctrl+h
+bindsym $mod+$binding_ws_prev_on_output2 workspace prev_on_output
+
+## Navigate // Next Free Workspace // <> ` ##
+set $binding_next_free grave
+bindsym $mod+$binding_next_free exec --no-startup-id /usr/bin/new_wrkspc
+
+## Navigate // Scratchpad // <><Ctrl> a ##
+set $binding_scratchpad Ctrl+a
+bindsym $mod+$binding_scratchpad scratchpad show
+
+###############################################################################
+# Window and Workspace Configuration
+###############################################################################
+
+## Modify // Window Position // <><Shift> ↑ ↓ ← → ##
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Modify // Window Position // <><Shift> k j h l ##
+set $binding_move_left Shift+h
+set $binding_move_right Shift+l
+set $binding_move_up Shift+k
+set $binding_move_down Shift+j
+bindsym $mod+$binding_move_left move left
+bindsym $mod+$binding_move_down move down
+bindsym $mod+$binding_move_up move up
+bindsym $mod+$binding_move_right move right
+
+## Modify // Containing Workspace // <><Ctrl><Shift> ↑ ↓ ← → ##
+bindsym $mod+Ctrl+Shift+Left move workspace to output left
+bindsym $mod+Ctrl+Shift+Down move workspace to output down
+bindsym $mod+Ctrl+Shift+Up move workspace to output up
+bindsym $mod+Ctrl+Shift+Right move workspace to output right
+
+## Modify // Containing Workspace // <><Ctrl><Shift> k j h l ##
+set $binding_take_left Ctrl+Shift+h
+set $binding_take_right Ctrl+Shift+l
+set $binding_take_up Ctrl+Shift+k
+set $binding_take_down Ctrl+Shift+j
+bindsym $mod+$binding_take_left move workspace to output left
+bindsym $mod+$binding_take_down move workspace to output down
+bindsym $mod+$binding_take_up move workspace to output up
+bindsym $mod+$binding_take_right move workspace to output right
+
+## Modify // Vertical Window Orientation // <> v ##
+set $binding_split_v v
+bindsym $mod+$binding_split_v split vertical
+
+## Modify // Horizontal Window Orientation // <> g ##
+set $binding_split_h g
+bindsym $mod+$binding_split_h split horizontal
+
+## Modify // Toggle Window Orientation // <> Backspace ##
+set $binding_orientation_toggle BackSpace
+bindsym $mod+$binding_orientation_toggle split toggle
+
+## Modify // Window Fullscreen Toggle // <> f ##
+set $binding_fullscreen_toggle f
+bindsym $mod+$binding_fullscreen_toggle fullscreen toggle
+
+## Modify // Window Floating Toggle // <><Shift> f ##
+set $binding_float_toggle Shift+f
+bindsym $mod+Shift+$binding_float_toggle floating toggle
+
+## Modify // Move to Scratchpad // <><Ctrl> m ##
+set $binding_move_scratchpad Ctrl+m
+bindsym $mod+$binding_move_scratchpad move to scratchpad
+
+## Modify // Tile/Float Focus Toggle // <><Shift> t ##
+set $binding_focus_toggle Shift+t
+bindsym $mod+$binding_focus_toggle focus mode_toggle
+
+## Modify // Window Layout Mode // <> t ##
+set $binding_layout_mode t
+bindsym $mod+$binding_layout_mode layout toggle tabbed splith splitv
+
+## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0__9 ##
+bindsym $mod+Shift+$ws1_key move container to workspace number $ws1
+bindsym $mod+Shift+$ws2_key move container to workspace number $ws2
+bindsym $mod+Shift+$ws3_key move container to workspace number $ws3
+bindsym $mod+Shift+$ws4_key move container to workspace number $ws4
+bindsym $mod+Shift+$ws5_key move container to workspace number $ws5
+bindsym $mod+Shift+$ws6_key move container to workspace number $ws6
+bindsym $mod+Shift+$ws7_key move container to workspace number $ws7
+bindsym $mod+Shift+$ws8_key move container to workspace number $ws8
+bindsym $mod+Shift+$ws9_key move container to workspace number $ws9
+bindsym $mod+Shift+$ws10_key move container to workspace number $ws10
+## Modify // Move Window to Workspace 11 - 19// <><Ctrl><Shift> 1__9 ##
+bindsym $mod+Shift+Ctrl+$ws1_key move container to workspace number $ws11
+bindsym $mod+Shift+Ctrl+$ws2_key move container to workspace number $ws12
+bindsym $mod+Shift+Ctrl+$ws3_key move container to workspace number $ws13
+bindsym $mod+Shift+Ctrl+$ws4_key move container to workspace number $ws14
+bindsym $mod+Shift+Ctrl+$ws5_key move container to workspace number $ws15
+bindsym $mod+Shift+Ctrl+$ws6_key move container to workspace number $ws16
+bindsym $mod+Shift+Ctrl+$ws7_key move container to workspace number $ws17
+bindsym $mod+Shift+Ctrl+$ws8_key move container to workspace number $ws18
+bindsym $mod+Shift+Ctrl+$ws9_key move container to workspace number $ws19
+bindsym $mod+Shift+Ctrl+$ws10_key move container to workspace number $ws20
+
+## Modify // Move Window to Next Free Workspace // <><Shift> ` ##
+set $binding_move_next_free Shift+grave
+bindsym $mod+$binding_move_next_free exec --no-startup-id /usr/bin/new_wrkspc -m
+
+# move focused container to workspace, move to workspace
+## Modify // Carry Window to Workspace 1 - 10// <><Alt> 0__9 ##
+bindsym $mod+$alt+$ws1_key move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+$alt+$ws2_key move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+$alt+$ws3_key move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+$alt+$ws4_key move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+$alt+$ws5_key move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+$alt+$ws6_key move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+$alt+$ws7_key move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+$alt+$ws8_key move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+$alt+$ws9_key move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+$alt+$ws10_key move container to workspace number $ws10; workspace number $ws10
+## Modify // Carry Window to Workspace 11 - 19 // <><Alt><Ctrl> 1__9 ##
+bindsym $mod+$alt+Ctrl+$ws1_key move container to workspace number $ws11; workspace number $ws11
+bindsym $mod+$alt+Ctrl+$ws2_key move container to workspace number $ws12; workspace number $ws12
+bindsym $mod+$alt+Ctrl+$ws3_key move container to workspace number $ws13; workspace number $ws13
+bindsym $mod+$alt+Ctrl+$ws4_key move container to workspace number $ws14; workspace number $ws14
+bindsym $mod+$alt+Ctrl+$ws5_key move container to workspace number $ws15; workspace number $ws15
+bindsym $mod+$alt+Ctrl+$ws6_key move container to workspace number $ws16; workspace number $ws16
+bindsym $mod+$alt+Ctrl+$ws7_key move container to workspace number $ws17; workspace number $ws17
+bindsym $mod+$alt+Ctrl+$ws8_key move container to workspace number $ws18; workspace number $ws18
+bindsym $mod+$alt+Ctrl+$ws9_key move container to workspace number $ws19; workspace number $ws19
+bindsym $mod+$alt+Ctrl+$ws10_key move container to workspace number $ws20; workspace number $ws20
+
+## Modify // Carry Window to Next Free Workspace // <><Alt> ` ##
+set $binding_take_next_free Mod1+grave
+bindsym $mod+$binding_take_next_free exec --no-startup-id /usr/bin/i3-next-workspace --move-window-and-follow
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Hiding borders adjacent to the screen edges_
+# The "smart" setting hides borders on workspaces with only one window visible_
+hide_edge_borders smart
+
+# Set the default layout mode
+workspace_layout default

@@ -1,0 +1,89 @@
+set $theme_gtk           Flat-Remix-GTK-Red-Darkest-Solid
+set $theme_icon          buuf-nestort
+set $theme_desktop_wallpaper   null
+set $theme_rofi          ~/.config/sway/cfg/rofi.rasi
+set $theme_terminal_scrollbar never
+
+###############################################################################
+# i3 Appearance and Behavior
+###############################################################################
+
+# Disable titlebar
+default_border pixel 1
+default_floating_border pixel 1
+
+# Specify the distance between windows in pixels_ (i3-gaps)
+gaps inner 5
+gaps outer 0
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Enable popup during fullscreen
+popup_during_fullscreen smart
+
+# window focus follows your mouse movements as the mouse crosses window borders
+focus_follows_mouse yes
+
+###############################################################################
+# i3 Colors and Fonts
+###############################################################################
+
+# Create variables from Xresources for i3's look_
+set $focused_color_border $color_red
+set $focused_color_background $color_black
+set $focused_color_text $color_red
+set $focused_color_indicator $color_red
+set $focused_color_child_border $color_red
+
+set $focused_inactive_color_border $color_green
+set $focused_inactive_color_background $color_black
+set $focused_inactive_color_text $color_green
+set $focused_inactive_color_indicator $color_green
+set $focused_inactive_color_child_border $color_green
+
+set $unfocused_color_border $color_blue
+set $unfocused_color_background $color_black
+set $unfocused_color_text $color_blue
+set $unfocused_color_indicator $color_blue
+set $unfocused_color_child_border $color_blue
+
+set $urgent_color_border $color_cyan
+set $urgent_color_background $color_black
+set $urgent_color_text $color_cyan
+set $urgent_color_indicator $color_cyan
+set $urgent_color_child_border $color_cyan
+
+# Window Border color
+# class                 border                             background                         text                               indicator                          child_border
+client.focused          $focused_color_border              $focused_color_background          $focused_color_text                $focused_color_indicator           $focused_color_child_border
+client.focused_inactive $focused_inactive_color_border     $focused_inactive_color_background $focused_inactive_color_text       $focused_inactive_color_indicator  $focused_inactive_color_child_border
+client.unfocused        $unfocused_color_border            $unfocused_color_background        $unfocused_color_text              $unfocused_color_indicator         $unfocused_color_child_border
+client.urgent           $urgent_color_border               $urgent_color_background           $urgent_color_text                 $urgent_color_indicator            $urgent_color_child_border
+
+# Create variables from Xresources for i3bars's look_
+set $bar_background_color $color_black
+set $bar_statusline_color $color_red
+set $bar_separator_color $color_arch_fg
+
+set $bar_workspace_focused_border_color $color_red
+set $bar_workspace_focused_background_color $color_red
+set $bar_workspace_focused_text_color $color_red
+
+set $bar_workspace_active_border_color $color_red
+set $bar_workspace_active_background_color $color_red
+set $bar_workspace_active_text_color $color_red
+
+set $bar_workspace_inactive_border_color $color_green
+set $bar_workspace_inactive_background_color $color_green
+set $bar_workspace_inactive_text_color $color_green
+
+set $bar_workspace_urgent_border_color $color_cyan
+set $bar_workspace_urgent_background_color $color_cyan
+set $bar_workspace_urgent_text_color $color_cyan
+
+# Sets i3 font for dialogs
+font $font_wm
+set $bar_separator_icon icon_separator
+set $bar_position top
+

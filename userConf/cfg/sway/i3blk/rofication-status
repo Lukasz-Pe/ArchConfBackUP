@@ -1,0 +1,39 @@
+#!/usr/bin/python
+
+import os
+from typing import Union
+
+from rofication import RoficationGui, RoficationClient, resources, Resource
+
+if __name__ == '__main__':
+    # defaults
+    
+    label_icon = os.environ['ICON_NOTIFY_NONE']
+    col = '${'+os.environ['C_NOR']+'}'
+    color = os.path.expandvars('${'+os.environ['C_NOR']+'}')
+    value_font = os.environ['FONT']
+
+    num: Union[int, str]
+    try:
+        client = RoficationClient()
+
+        if os.getenv('button'):
+            RoficationGui(client).run()
+
+        num, crit = client.count()
+        if num > 0:
+            label_icon = os.environ['ICON_NOTIFY_SOME']
+            col = '${'+os.environ['C_CHG']+'}'
+            color = os.path.expandvars('${'+os.environ['C_CHG']+'}')
+        if crit > 0:
+            col = '${'+os.environ['C_CHG']+'}'
+            color = os.path.expandvars('${'+os.environ['C_CHG']+'}')
+    except (FileNotFoundError, ConnectionRefusedError):
+        label_icon = os.environ['ICON_NOTIFY_ERROR']
+        color = os.path.expandvars('${'+os.environ['C_ERR']+'}')
+        num = '?'
+
+    # only fetch resources if needed
+    label = f'<span foreground="{color}">{label_icon}</span>'
+    value = f'<span font_desc={value_font} foreground="{color}"> {num}</span>'
+    print(label + value)

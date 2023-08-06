@@ -1,0 +1,7 @@
+# Font definition
+set $font_bar        MesloLGS NF 12
+set $font_wm         pango:MesloLGS NF 12
+set $font_bar        pango:MesloLGS NF 12
+set $font_rofi       MesloLGS NF 14
+set $font_terminal   MesloLGS NF:pixelsize=16:antialias=true:autohint=true
+set $font_gnome_terminal MesloLGS NF 12

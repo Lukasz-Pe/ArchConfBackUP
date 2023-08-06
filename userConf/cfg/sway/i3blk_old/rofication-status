@@ -1,0 +1,38 @@
+#!/usr/bin/python
+
+import os
+from typing import Union
+
+from rofication import RoficationGui, RoficationClient, resources, Resource
+
+setattr (resources,'green_color',Resource(env_name='color', xres_name='i3xrocks.green.color', default='#00FF00'))
+setattr (resources,'red_color', Resource(env_name='color', xres_name='i3xrocks.red.color', default='#FF0000'))
+
+if __name__ == '__main__':
+    # defaults
+    label_icon: Resource = resources.notify_none
+    color: Resource = resources.label_color
+    value_font: Resource = resources.value_font
+
+    num: Union[int, str]
+    try:
+        client = RoficationClient()
+
+        if os.getenv('button'):
+            RoficationGui(client).run()
+
+        num, crit = client.count()
+        if num > 0:
+            label_icon = resources.notify_some
+            color = resources.green_color
+        if crit > 0:
+            color = resources.critical_color
+    except (FileNotFoundError, ConnectionRefusedError):
+        label_icon = resources.notify_error
+        color = resources.error_color
+        num = '?'
+
+    # only fetch resources if needed
+    label = f'<span foreground="{color.fetch()}">{label_icon.fetch()}</span>'
+    value = f'<span font_desc="{value_font.fetch()}" foreground="{color.fetch()}"> {num}</span>'
+    print(label + value)

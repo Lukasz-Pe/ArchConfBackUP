@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+#while true
+#do
+ CNT=$(checkupdates | wc -l)
+
+ if [[ "$CNT" == 0 ]]; then
+  CLS=none
+ else
+  CLS=some
+ fi
+
+ echo '{"alt":"'$CLS'","class":"'$CLS'","text":'$CNT'}'
+# pkill -SIGRTMIN+10 waybar
+# sleep 3600
+#done

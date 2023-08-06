@@ -1,0 +1,17 @@
+01_color
+02_fonts
+03_autostart
+04_icons
+05_theme
+06_rofi
+07_navigation
+08_workspaces
+09_programs
+10_win_resize_and_gaps
+11_session_mgmt
+12_system_mgmt
+13_workspace_mgmt
+14_bar
+15_bar_cfg
+list
+rofi.rasi

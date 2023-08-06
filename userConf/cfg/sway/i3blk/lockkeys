@@ -1,0 +1,30 @@
+#!/bin/bash
+
+NUM_I=$ICON_NUMLOCK
+CAPS_I=$ICON_CAPSLOCK
+
+#NUM_S=$(xset -q | grep Num | awk '{ print $8 }')
+#CAPS_S=$(xset -q | grep Caps | awk '{ print $4 }')
+NUM_S=$(cat /sys/class/leds/*::numlock/brightness|uniq)
+CAPS_S=$(cat /sys/class/leds/*::capslock/brightness|uniq)
+
+if [[ "$NUM_S" == "1" ]];then
+ NUM_C=${!C_NOR}
+else
+ NUM_C=${!C_CHG}
+fi
+
+if [[ "$CAPS_S" == "1" ]];then
+ CAPS_C=${!C_NOR}
+else
+ CAPS_C=${!C_CHG}
+fi
+
+SEP_I=$ICON_SEPARATOR
+SEP_C=${!C_SEP}
+
+#i3-msg "exec pkill -SIGRTMIN+15 i3blocks" > /dev/null
+
+echo "<span color=\"$CAPS_C\">$CAPS_I</span>\
+<span color=\"$SEP_C\">$SEP_I</span>\
+<span color=\"$NUM_C\">$NUM_I</span>"

@@ -1,0 +1,52 @@
+###############################################################################
+# Session Management
+###############################################################################
+
+## Session // Exit App // <><Shift> q ##
+set $binding_exit_app Shift+q
+bindsym $mod+$binding_exit_app [con_id="__focused__"] kill
+
+## Session // Terminate App // <><Alt> q ##
+set $binding_kill_app Mod1+q
+bindsym $mod+$binding_kill_app [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
+
+## Session // Reload i3 Config // <><Shift> c ##
+set $binding_reload Shift+c
+bindsym $mod+$binding_reload reload
+
+## Session // Refresh Session // <><Shift> r ##
+set $binding_refresh Shift+r
+set $program_refresh_ui program_refresh_ui /usr/bin/regolith-look refresh
+bindsym $mod+$binding_refresh exec --no-startup-id $program_refresh_ui
+
+## Session // Restart i3 // <><Ctrl> r ##
+set $binding_restart Ctrl+r
+bindsym $mod+$binding_restart exec swaymsg reload
+
+## Session // Logout // <><Shift> e ##
+set $binding_logout Shift+e
+#set $program_logout kill -9 -1
+set $program_logout rofi -p -show p -modi p:'rofi-power-menu --choices=shutdown/reboot/logout' -m 2 -theme $theme_rofi
+bindsym $mod+$binding_logout exec $program_logout
+
+## Session // Reboot // <><Shift> b ##
+set $binding_reboot Shift+b
+#set $program_reboot reboot
+set $program_reboot rofi -p -show p -modi p:'rofi-power-menu --choices=shutdown/reboot/logout' -m 2 -theme $theme_rofi
+bindsym $mod+$binding_reboot exec $program_reboot
+
+## Session // Power Down // <><Shift> p ##
+set $binding_shutdown Shift+p
+#set $program_shutdown poweroff
+set $program_shutdown rofi -p -show p -modi p:'rofi-power-menu --choices=shutdown/reboot/logout' -m 2 -theme $theme_rofi
+bindsym $mod+$binding_shutdown exec $program_shutdown
+
+## Session // Lock Screen // <> Escape ##
+#set $binding_lock binding_lock Escape
+#set $program_lock program_lock dbus-send --type=method_call --dest=org_gnome_ScreenSaver /org/gnome/ScreenSaver org_gnome_ScreenSaver_Lock
+#bindsym $mod+$binding_lock exec $program_lock
+
+## Session // Sleep // <><Shift> s ##
+#set $binding_sleep binding_sleep Shift+s
+#set $program_sleep program_sleep systemctl suspend
+#bindsym $mod+$binding_sleep exec $program_sleep

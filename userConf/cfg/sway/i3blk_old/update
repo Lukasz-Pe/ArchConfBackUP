@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+CNT=$(checkupdates | wc | awk {'print $1'})
+
+BUTTON=${button:-}
+
+if [[ "$CNT" == 0 ]]; then
+ COL=$(xrescat i3xrocks.label.color)
+ ICO=$(xrescat i3xrocks.label.no-updates)
+else
+ COL=#00FF00
+ ICO=$(xrescat i3xrocks.label.pending-updates)
+fi
+
+echo "<span color=\"$COL\">$ICO $CNT</span>"
+
+if [ "x${BUTTON}" == "x1" ]; then
+ i3-msg -q "exec gnome-terminal"
+fi

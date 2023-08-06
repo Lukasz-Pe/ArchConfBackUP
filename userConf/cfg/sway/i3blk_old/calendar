@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+
+BLOCK_BUTTON=$1
+
+WIDTH=${WIDTH:-200}
+HEIGHT=${HEIGHT:-200}
+#DATEFMT=${DATEFMT:-"+%a %Y-%m-%d %H:%M:%S"}
+DATEFMT=$(xrdb_get i3xrocks.date.format)
+
+OPTIND=1
+while getopts ":f:W:H:" opt; do
+    case $opt in
+        f) DATEFMT="$OPTARG" ;;
+        W) WIDTH="$OPTARG" ;;
+        H) HEIGHT="$OPTARG" ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+        :)
+            echo "Option -$OPTARG requires an argument." >&2
+            exit 1
+            ;;
+    esac
+done
+
+case "$BLOCK_BUTTON" in
+  1|2|3) 
+
+	# the position of the upper left corner of the popup
+	posX=$(($BLOCK_X + $WIDTH / 2))
+	posY=$(($BLOCK_Y + $HEIGHT))
+echo "$BLOCK_BUTTON pressed"
+	i3-msg -q "exec yad --calendar \
+        --width=$WIDTH --height=$HEIGHT \
+	    --undecorated --fixed \
+	    --close-on-unfocus --no-buttons \
+	    --posx=$posX --posy=$posY \
+	    > /dev/null"
+esac
+
+LABEL_ICON=${icon:-$(xrdb_get i3xrocks.label.time)}
+LABEL_COLOR=${label_color:-$(xrdb_get i3xrocks.label.color)}
+VALUE_COLOR=${color:-$(xrdb_get i3xrocks.label.color)}
+VALUE_FONT=${font:-$(xrdb_get i3xrocks.value.font)}
+
+DATE_VALUE=$(date "+ $DATEFMT")
+echo "$BLOCK_BUTTON<span color=\"$LABEL_COLOR\">$LABEL_ICON</span>\
+<span font_desc=\"$VALUE_FONT\" color=\"$VALUE_COLOR\">$DATE_VALUE</span>"

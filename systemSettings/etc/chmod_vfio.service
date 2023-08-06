@@ -1,0 +1,10 @@
+[Unit]
+Description=CHMOD VFIO DEV
+User=root
+
+[Service]
+StandardOutput=journal
+ExecStart=/usr/bin/chmod 0666 /dev/vfio/vfio
+
+[Install]
+WantedBy=multi-user.target

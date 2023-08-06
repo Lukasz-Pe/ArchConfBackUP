@@ -1,0 +1,58 @@
+#color=xresource:i3xrocks.value.color
+#label_color=xresource:i3xrocks.label.color
+#full_text=
+separator_block_width=15
+markup=pango
+align=center
+#separator=false
+FONT="MesloLGS NF 12"
+#Colors to choose from
+COLOR_BLACK=#000000
+COLOR_WHITE=#FFFFFF
+COLOR_RED=#FF0000
+COLOR_GREEN=#00FF00
+COLOR_BLUE=#0000FF
+COLOR_CYAN=#95E6CB
+COLOR_MAGENTA=#F28779
+COLOR_ORANGE=#E6B450
+COLOR_VIOLE=#B48EAD
+COLOR_YELLOW=#FFD580
+# Arch colors
+COLOR_ARCH_FG=#1793D1
+COLOR_ARCH_BG=#333333
+
+#ICONS
+ICON_NUMLOCK=
+ICON_CAPSLOCK=
+ICON_LAYOUT_CHANGE=
+ICON_SOUND=
+ICON_MUTE=
+ICON_MEMORY=
+ICON_CPU=
+ICON_THERMOMETER=
+ICON_NOTIFY_NONE=
+ICON_NOTIFY_SOME=
+ICON_NOTIFY_ERROR=
+ICON_NO_UPDATES=
+ICON_PENDING_UPDATES=
+ICON_TIME=
+ICON_SEPARATOR=
+
+#Color definitions
+C_NOR=COLOR_RED
+C_CHG=COLOR_GREEN
+C_SEP=COLOR_ARCH_FG
+C_DIFF=COLOR_YELLOW
+#exp C_NOR COLOR_RED
+#exp C_CHG COLOR_GREEN
+#exp C_SEP COLOR_ARCH_FG
+#exp C_DIFF COLOR_YELLOW
+
+#command=. ./exporter.sh conf2
+
+[spr]
+#command=. ./exporter.sh conf2
+command=./focused-window-name
+interval=once
+DISPLAY=used
+PERCENTAGE=true

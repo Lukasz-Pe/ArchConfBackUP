@@ -1,0 +1,46 @@
+# icon definitions
+
+set $icon_wifi 
+set $icon_wired 
+set $icon_up 
+set $icon_dn 
+set $icon_cpu 
+set $icon_battery_100 
+set $icon_battery_80 
+set $icon_battery_50 
+set $icon_battery_20 
+set $icon_battery_0 
+set $icon_battery_charging 
+set $icon_battery_ac 
+set $icon_battery_unknown 
+set $icon_time 
+set $icon_workspace 
+set $icon_disk 
+set $icon_no_updates 
+set $icon_pending_updates 
+
+set $icon_media_playing 
+set $icon_media_paused 
+
+set $icon_notify_none 
+set $icon_notify_some 
+set $icon_notify_error 
+set $icon_help 
+set $icon_thermometer 
+
+set $icon_sound 
+set $icon_mute 
+set $icon_memory 
+
+set $icon_on +
+set $icon_off -
+
+set $icon_numlock 
+set $icon_capslock 
+set $icon_layout_change 
+
+set $icon_error 
+
+set $icon_next_workspace 
+set $icon_app_launcher 
+set $icon_separator 

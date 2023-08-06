@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LABEL_ICON=${icon:-$(xrdb -query | grep "i3xrocks.label.numlock" | cut -f 2)}
+CMD=$(xset -q | grep Num | awk '{ print $8 }')
+
+if [[ "$CMD" == "on" ]];then
+# echo eq"$CMD"eq
+ COLOR=#FF0000
+else
+# echo neq"$CMD"neq
+ COLOR=#00FF00
+fi
+
+echo "<span color=\"$COLOR\">$LABEL_ICON</span>"

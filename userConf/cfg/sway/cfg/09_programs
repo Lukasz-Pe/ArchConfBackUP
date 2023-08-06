@@ -1,0 +1,99 @@
+set $binding_browser Shift+Return
+set $program_browser firefox
+## Launch // Browser // <><Shift> Enter ##
+bindsym $mod+$binding_browser exec $program_browser
+
+set $font typeface_wm
+set $bar_font typeface_bar
+set $bar_status_command i3blocks -c ~/_config/i3/i3blk/conf
+
+set $bar_capslock Caps_Lock exec pkill -SIGRTMIN+15 i3blocks
+set $bar_numlock Num_Lock exec pkill -SIGRTMIN+15 i3blocks
+
+bindsym Caps_Lock $bar_capslock
+bindsym Num_Lock $bar_numlock
+
+#Launch // Application // <> Space ##
+set $binding_launcher_app space
+set $program_launcher_app rofi -p -show drun -m 2 -theme
+bindsym $mod+$binding_launcher_app exec $program_launcher_app $theme_rofi
+
+## Launch // Command // <><Shift> Space ##
+set $binding_launcher_cmd Shift+space
+set $program_launcher_cmd rofi -p -show run -m 2 -theme 
+bindsym $mod+$binding_launcher_cmd exec $program_launcher_cmd $theme_rofi
+
+## Navigate // Window by Name // <><Ctrl> Space ##
+set $binding_launcher_window Ctrl+space
+set $program_launcher_window rofi -p -show window -m 2 -theme 
+bindsym $mod+$binding_launcher_window exec $program_launcher_window $theme_rofi
+
+set $binding_calculator XF86Calculator
+set $program_calcualtor gnome-calculator
+bindsym $binding_calculator exec $program_calcualtor
+
+#set $binding_email_and_calendar p
+#set $program_email_and_calendar thunderbird
+#bindsym $alt+$binding_email_and_calendar exec $binding_email_and_calendar
+
+set $binding_email e
+set $program_email geary
+bindsym $mod+$binding_email exec $program_email
+
+set $binding_calendar c
+set $program_calendar gnome-calendar
+bindsym $mod+$binding_calendar exec $program_calendar
+
+set $binding_obsidian o
+set $program_obsidian obsidian
+bindsym $mod+$binding_obsidian exec $program_obsidian
+
+set $binding_obs-studio Shift+o
+set $program_obs-studio obs
+bindsym $mod+$binding_obs-studio exec $program_obs-studio
+
+## Launch // Terminal // <> Enter ##
+set $binding_terminal Return
+bindsym $mod+$binding_terminal exec alacritty
+#bindsym $mod+$binding_terminal exec gnome-terminal
+
+set $binding_shutdown Shift+p
+set $program_shutdown poweroff
+
+set $binding_raisevolume XF86AudioRaiseVolume
+set $program_raisevolume "amixer -q -D default sset Master 1%+"
+bindsym $binding_raisevolume exec $program_raisevolume; exec pkill -SIGRTMIN+5 i3blocks
+
+set $binding_lowervolume XF86AudioLowerVolume
+set $program_lowervolume "amixer -q -D default sset Master 1%-"
+bindsym $binding_lowervolume exec $program_lowervolume; exec pkill -SIGRTMIN+5 i3blocks
+
+set $binding_mute XF86AudioMute
+set $program_mute "amixer -q -D default sset Master toggle"
+bindsym $binding_mute exec $program_mute; exec pkill -SIGRTMIN+5 i3blocks
+
+set $binding_playpause XF86AudioPlay
+set $program_playpause playerctl play-pause 
+bindsym $binding_playpause exec $program_playpause
+
+set $binding_next XF86AudioNext
+set $program_next playerctl next
+bindsym $binding_next exec $program_next
+
+set $binding_previous XF86AudioPrev
+set $program_previous playerctl previous
+bindsym $binding_previous exec $program_previous
+
+set $binding_show_hide_waybar w
+set $program_show_hide_waybar exec killall -SIGUSR1 waybar
+bindsym $mod+$binding_show_hide_waybar $program_show_hide_waybar
+
+set $binding_screenshot Print
+set $program_screenshot sway-interactive-screenshot
+bindsym $alt+$binding_screenshot exec $program_screenshot
+
+set $program_screenshot_focused_screen "sway-interactive-screenshot -s focused-output"
+bindsym Ctrl+$binding_screenshot exec $program_screenshot_focused_screen
+
+set $program_screenshot_focused_window "sway-interactive-screenshot -s focused-window"
+bindsym $binding_screenshot exec $program_screenshot_focused_window

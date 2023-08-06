@@ -1,0 +1,100 @@
+set $bar_date_format "%a, %Y-%m-%d %H%M%S"
+
+set $bar_label_color       $color_red
+set $bar_value_color       $color_red
+set $bar_value_font        $font_bar
+set $bar_critical_color    $color_red
+set $bar_error_color       $color_orange
+set $bar_warning           $color_yellow
+set $bar_nominal           $color_red
+set $bar_red_color         $color_red
+set $bar_green_color       $color_green
+set $bar_blue_color        $color_blue
+set $bar_yellow_color      $color_yellow
+set $bar_orange_color      $color_orange
+set $bar_magenta_color     $color_magenta
+set $bar_violet_color      $color_violet
+set $bar_cyan_color        $color_cyan
+
+set $bar_label_thermometer $icon_thermometer
+
+set $bar_label_wifi $	icon_wifi
+set $bar_label_wired $icon_wired
+set $bar_label_up $icon_up
+set $bar_label_dn $icon_dn
+
+set $bar_label_cpu $icon_cpu
+
+set $bar_label_disk $icon_disk
+
+set $bar_label_battery100 $icon_battery_100
+set $bar_label_battery80 $icon_battery_80
+set $bar_label_battery50 $icon_battery_50
+set $bar_label_battery20 $icon_battery_20
+set $bar_label_battery0 $icon_battery_0
+set $bar_label_batterycharging $icon_battery_charging
+set $bar_label_batteryac $icon_battery_ac
+set $bar_label_batteryunknown $icon_battery_unknown
+
+set $bar_label_time $icon_time
+
+set $bar_label_mediaplaying $icon_media_playing
+set $bar_label_mediapaused $icon_media_paused
+set $bar_value_mediaplayerwidth 25
+
+set $bar_label_notify_none $icon_notify_none
+set $bar_label_notify_some $icon_notify_some
+set $bar_label_notify_error $icon_notify_error
+
+set $bar_label_help $icon_help
+
+set $bar_label_sound $icon_sound
+set $bar_label_mute $icon_mute
+set $bar_label_memory $icon_memory
+
+set $bar_label_on $icon_on
+set $bar_label_off $icon_off
+
+set $bar_label_capslock $icon_capslock
+set $bar_label_numlock $icon_numlock
+set $bar_label_layout_change $icon_layout_change
+
+set $bar_weather_error_message $icon_error
+
+set $bar_label_nextWorkspaceWidget $icon_next_workspace
+
+set $bar_label_app_launcher $icon_app_launcher
+
+set $bar_label_noUpdates $icon_no_updates
+set $bar_label_pendingUpdates $icon_pending_updates
+
+#Stop
+###############################################################################
+# i3 Bar
+###############################################################################
+
+set $bar_position top
+set $bar_trayoutput primary
+set $bar_stripworkspacenumbers yes
+set $bar_mode dock
+bindsym $mod+d exec killall -SIGUSR1 waybar
+
+set $bar_capslock Caps_Lock exec pkill -SIGRTMIN+15 i3blocks
+set $bar_numlock Num_Lock exec pkill -SIGRTMIN+15 i3blocks
+bindsym --release $bar_capslock
+bindsym  --release $bar_numlock
+
+#i3xrocks config file_ Override this for a custom status bar generator_
+#set $bar_status_command i3blocks -c $HOME/.config/sway/i3blk/conf
+
+# The bar configuration
+bar {
+#  position $bar_position
+#  mode $bar_mode
+#  font $font_bar
+#  separator_symbol $icon_separator
+#  status_command $bar_status_command
+  swaybar_command waybar
+#  tray_output $bar_trayoutput
+#  strip_workspace_numbers $bar_stripworkspacenumbers
+}

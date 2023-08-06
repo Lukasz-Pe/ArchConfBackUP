@@ -1,0 +1,28 @@
+#!/bin/bash
+
+NUM_I=${icon:-$(xrdb_get "i3xrocks.label.numlock")}
+CAPS_I=${icon:-$(xrdb_get "i3xrocks.label.capslock")}
+
+NUM_S=$(xset -q | grep Num | awk '{ print $8 }')
+CAPS_S=$(xset -q | grep Caps | awk '{ print $4 }')
+
+if [[ "$NUM_S" == "on" ]];then
+ NUM_C=#FF0000
+else
+ NUM_C=#00FF00
+fi
+
+if [[ "$CAPS_S" == "on" ]];then
+ CAPS_C=#FF0000
+else
+ CAPS_C=#00FF00 
+fi
+
+SEP_I=$(xrdb_get "i3-wm.bar.separator.icon")
+SEP_C=$(xrdb_get "i3-wm.bar.separator.color")
+
+#i3-msg "exec pkill -SIGRTMIN+15 i3blocks" > /dev/null
+
+echo "<span color=\"$CAPS_C\">$CAPS_I</span>\
+<span color=\"$SEP_C\">$SEP_I</span>\
+<span color=\"$NUM_C\">$NUM_I</span>"
