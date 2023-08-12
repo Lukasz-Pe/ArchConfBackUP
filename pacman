@@ -153,6 +153,7 @@ lib32-sdl2_ttf
 libdvdcss
 libreoffice-fresh
 libreoffice-fresh-pl
+libsixel
 libtool
 libva-mesa-driver
 lightsoff
@@ -353,6 +354,7 @@ virtualbox-guest-iso
 vlc
 vte-common
 vte3
+w3m
 waybar
 wf-recorder
 which

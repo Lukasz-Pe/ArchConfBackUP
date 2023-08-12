@@ -26,7 +26,7 @@
 		"interval": 1,
 		"format": "{:%H:%M:%OS}",
 		"tooltip": false,
-		"on-click": "swaymsg workspace number 4",
+		"on-click": "swaymsg workspace number 8",
 		"on-click-right": "swaymsg workspace back_and_forth"
 	},
 
@@ -34,7 +34,7 @@
 		"interval": 20,
 		"format": "{:%a, %e %b %Y}",
 		"tooltip": false,
-		"on-click": "swaymsg workspace number 4",
+		"on-click": "swaymsg workspace number 8",
 		"on-click-right": "swaymsg workspace back_and_forth"
 		//"tooltip-format": "{:%e %B %Y}"
 	},

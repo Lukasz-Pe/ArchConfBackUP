@@ -13,6 +13,7 @@ SIGNAL='Wysyłam sygnał zakończenia akutalizacji.'
 alias susu='sudo -i --preserve-env=HOME'
 alias gn="cd /home/lukaszpe/Dokumenty/Obsidian/notatki"
 alias gg="gn && git pull"
+alias pull="git pull"
 alias ww="git add . && git commit -a --allow-empty-message -m '' && git push; exit"
 alias wy="git add . && git commit -a --allow-empty-message -m '' && git push"
 alias pakty="sudo pacman -Syyu --noconfirm; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
