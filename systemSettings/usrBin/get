@@ -1,0 +1,172 @@
+#!/bin/env python
+
+from __future__ import unicode_literals
+import os, sys, argparse, textwrap, yt_dlp, json
+from subprocess import Popen, PIPE
+from datetime import datetime
+
+class MyLogger(object):
+ def debug(self, msg):
+  pass
+ def warning(self, msg):
+  pass
+ def error(self, msg):
+  print(msg)
+
+def clear_line(n=1):
+ LINE_UP = '\033[1A'
+ LINE_CLEAR = '\x1b[2K'
+ for i in range(n):
+  print(LINE_UP, end=LINE_CLEAR)
+
+def my_hook(d):
+ if d['status'] == 'finished':
+  print('Done downloading, now converting ...')
+ if d['status'] == 'downloading':
+  print(d['filename'], d['_percent_str'], d['_eta_str'])
+  clear_line(3)
+
+def ftxt(flist, txt):
+ for fl in flist:
+  if txt in fl and '.ytdl' in fl:
+   return False
+  if txt in fl:
+   return True
+ return False
+
+data=datetime.today().strftime('%Y-%m-%d')
+
+parser = argparse.ArgumentParser(description="Pobieracz masowy", formatter_class=argparse.RawDescriptionHelpFormatter)
+parser.add_argument("-af", "--addressfile", dest="file", help="File with link to download")
+parser.add_argument("-d", "--directory", dest="directory", help="Target directory to download to given as a path relative to now opened directory", default=data)
+parser.add_argument("-q","--quality",dest="quality", help="Max download or available quality for download")
+parser.add_argument("-a","--audio",dest="audio", help="Downloads only mp3 ignorig quality settings.", action="store_true")
+parser.add_argument("-al","--album",dest="album", help="Albumname. Will be only in a  filename")
+parser.add_argument("-t","--thumbnail",dest="thumbnail", help="Embed thumbnail in the sound file.", action="store_true")
+parser.add_argument("-u","--user",dest="user", help="Username")
+parser.add_argument("-p","--password",dest="password", help="User password")
+parser.add_argument("-vp","--videopwd",dest="videopwd", help="Vide password, must be infile before link separated by space", action="store_true")
+parser.add_argument("-c","--continue",dest="continue", help="Continue file numbering after the highest in directory.", action="store_true")
+parser.add_argument("-m","--move",dest="move", help="Move downloaded files to other directory")
+parser.add_argument("-r","--retries",dest="retries", help="Number of retries for every link before giving up")
+
+if len(sys.argv)==1:
+ parser.print_help(sys.stderr)
+ sys.exit(1)
+args = vars(parser.parse_args())
+
+pth=os.getcwd()+"/"+args["directory"]
+cmd_mkdir=['/usr/bin/mkdir','-p',pth]
+fth=os.getcwd()+"/"+args["file"]
+fthnd=fth+"-nd"
+if not os.path.isfile(fth):
+ fth=args["file"]
+#ap=['/sbin/sudo','/sbin/systemctl','stop','shutdown.timer']
+#app=Popen(ap, stdout=PIPE, stderr=PIPE)
+#app.wait()
+
+if not os.path.exists(pth):
+ mdir=Popen(cmd_mkdir, stdout=PIPE, stderr=PIPE)
+ mdir.wait()
+if os.path.exists(pth):
+ file=open(fth,'r')
+ addr=file.readlines()
+ flist=os.listdir(pth)
+ytdl_opt={
+   'outtmpl':'',
+   'format':'bestvideo[height<={}]+bestaudio/best[height<={}]'.format(args["quality"],args["quality"]),
+   'ignoreerrors':'True',
+   'continuedl':'True',
+   'nooverwrites':'True',
+   #'logger':MyLogger(),
+   #'progress_hooks':[my_hook],
+   }
+if args["retries"] is not None:
+ ytdl_opt.update({'retries':int(args["retries"])},)
+if args["quality"] is None:
+ quality={'format':'best'}
+ ytdl_opt.update(quality)
+if args["audio"]:
+ quality={'format': 'bestaudio/best',
+ 'postprocessors': [{
+ 'key': 'FFmpegExtractAudio',
+ 'preferredcodec': 'mp3',
+ 'preferredquality': '192'},
+ {'key':'EmbedThumbnail'},
+ {'key':'FFmpegMetadata'},]
+ }
+# quality={'format':'bestaudio[ext=m4a]'}
+ ytdl_opt.update(quality)
+
+if args["user"] != None:
+ ytdl_opt.update({'user':'{}'.format(args["user"])})
+if args["password"] != None:
+ ytdl_opt.update({'password':'{}'.format(args["password"])})
+if args["thumbnail"] != False:
+ ytdl_opt.update({'writethumbnail':'{}'.format(args["thumbnail"])})
+# ytdl_opt.update({'write_all_thumbnails':'{}'.format(args["thumbnail"])})
+if args["album"] != None:
+ album=args["album"]+"-"
+ 
+i=0
+
+if args["continue"]:
+ try:
+  for file in flist:
+   n=int((file[:3]))
+   if i<n:
+    i=n
+ except:
+  print("File name was not starting with number. Aborting.")
+  exit()
+
+cat=""
+for url in addr:
+ if url.find('http')<0:
+  cat=url
+ else:
+  cnt="%03d"%i
+  if cat !="":
+   cnt=cnt+"_"+cat.strip('\n')
+  pwd=""
+  if args["videopwd"]:
+   if url.find(' ')>0:
+    pwd,url=url.strip('\n').split()
+    ytdl_opt.update({'videopassword':'{}'.format(pwd)})
+   else:
+    ytdl_opt.pop("videopassword",None)
+  if not ftxt(flist,cnt):
+   print("Downloading file: {}".format(cnt[:4]))
+#   with yt_dlp.YoutubeDL(ytdl_opt) as ydl:
+#    info_dict = ydl.extract_info(url, download=False)
+    #video_url = info_dict.get("url", None)
+    #video_id = info_dict.get("id", None)
+    #video_title = info_dict.get('title', None)
+    #video_creator = info_dict.get('creator', None)
+    #video_uploader = info_dict.get('uploader', None)
+#    video_artist = info_dict.get('artist', None)
+   template=""
+   if 'album' in globals() or 'album' in locals():
+    template+=album
+   if 'video_artist' in globals() or 'video_artist' in locals():
+    if video_artist is not None:
+     template=template+'%(artist)s-'
+   template=template+'%(title)s'
+   template=template+'.%(ext)s'
+   ytdl_opt.update({'outtmpl':'{}/{}_{}'.format(pth,cnt,template),})
+   with yt_dlp.YoutubeDL(ytdl_opt) as ydl:
+    ydl.download([url])
+  i+=1
+#  if i>0:
+#   break
+
+#if args["move"] != None:
+# os.system("pod -m S")
+# mvd=['/sbin/mv',pth,args["move"]+args["directory"]]
+# mv=Popen(mvd, stdout=PIPE, stderr=PIPE)
+# mv.wait()
+# print(mvd)
+
+#po=['/sbin/sudo','/sbin/systemctl','start','shutdown.timer']
+#ppo=Popen(po, stdout=PIPE, stderr=PIPE)
+#ppo.wait()

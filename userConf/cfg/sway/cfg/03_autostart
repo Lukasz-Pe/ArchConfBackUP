@@ -7,6 +7,7 @@ exec --no-startup-id playerctld
 #exec thunderbird;
 exec geary
 exec gnome-calendar
+#exec tradingview
 
 #exec_always --no-startup-id xrdb -l ~/.Xresources
 #exec --no-startup-id swaync

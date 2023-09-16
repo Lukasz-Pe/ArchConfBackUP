@@ -71,9 +71,9 @@
 	"network": {
 		"interval": 5,
 		"format-wifi": " {essid} ({signalStrength}%)",
-		"format-ethernet": " {ifname}",
+		"format-ethernet": "",
 		"format-disconnected": "No connection",
-		"format-alt": " {ipaddr}/{cidr}",
+		"format-alt": " {ipaddr}",
 		"tooltip": false
 	},
 
@@ -100,7 +100,7 @@
 		"scroll-step": 1,
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} {volume}%",
-		"format-muted": "{icon} {volume}%",
+		"format-muted": "󰝟 {volume}%",
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "",

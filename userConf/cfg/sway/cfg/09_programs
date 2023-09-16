@@ -3,15 +3,15 @@ set $program_browser firefox
 ## Launch // Browser // <><Shift> Enter ##
 bindsym $mod+$binding_browser exec $program_browser
 
-set $font typeface_wm
-set $bar_font typeface_bar
-set $bar_status_command i3blocks -c ~/_config/i3/i3blk/conf
+set $binding_tv T
+set $program_tv tradingview
+## Launch // Browser // <><Shift> Enter ##
+bindsym $mod+$binding_tv exec $program_tv
 
-set $bar_capslock Caps_Lock exec pkill -SIGRTMIN+15 i3blocks
-set $bar_numlock Num_Lock exec pkill -SIGRTMIN+15 i3blocks
-
-bindsym Caps_Lock $bar_capslock
-bindsym Num_Lock $bar_numlock
+set $binding_multimediaPlayer V
+set $program_multimediaPlayer vlc
+## Launch // multimediaPlayer // <><Shift> Enter ##
+bindsym $mod+$binding_multimediaPlayer exec $program_multimediaPlayer
 
 #Launch // Application // <> Space ##
 set $binding_launcher_app space

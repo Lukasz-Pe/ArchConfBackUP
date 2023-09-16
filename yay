@@ -1,3 +1,6 @@
+adwaita-color-schemes
+adwaita-qt5
+adwaita-qt6
 amf-amdgpu-pro
 android-studio
 archlinux-appstream-data-pamac
@@ -63,10 +66,13 @@ plymouth-theme-unrap-git
 pop-launcher-git
 pop-shell-shortcuts-git
 printrun
+protonmail-bridge-bin
 pyswisseph3
 python-anytree
 python-node-semver
 python-pyglet
+qgnomeplatform-qt5
+qgnomeplatform-qt6
 qt5-styleplugins
 rofi-lbonn-wayland-git
 rofi-power-menu
@@ -77,6 +83,7 @@ sway-interactive-screenshot
 text-engine
 timeshift-bin
 timeshift-systemd-timer
+tradingview
 ttf-meslo-nerd-font-powerlevel10k
 ttf-ms-win11-auto
 ttf-ms-win11-auto-other

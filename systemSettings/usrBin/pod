@@ -1,0 +1,133 @@
+#!/bin/env python
+##################################################################################################
+#Start do not change
+import os, sys, argparse, textwrap
+from subprocess import Popen, PIPE
+
+xtra_nfo ='''
+Dostępne serwery:
+M - Minix,
+S - ŁEPskiSerwer.'''
+
+class pc:
+ def __init__(self, short, name, ip, mac, mountpoint):
+  self.short = short
+  self.name = name
+  self.ip = ip
+  self.mac = mac
+  self.mountpoint = mountpoint
+
+ def id(self):
+  print(f"Nazwa: {self.name}\n\
+IP: {self.ip}\n\
+MAC: {self.mac}\n\
+Punkt montowania: {self.mountpoint}")
+
+ def ping(self):
+  cmd=['/sbin/ping','-s 0','-W 1','-q','-n','-c 1',self.ip]
+  p1 = Popen(cmd, stdout=PIPE, stderr=PIPE)
+  txt=p1.communicate()[0].decode().split('\n')[3]
+  if txt.find(', 0% packet loss') > 0:
+   return True
+  return False
+ 
+ def mounted(self):
+  cmd=['/sbin/mount']
+  p1 = Popen(cmd, stdout=PIPE, stderr=PIPE)
+  p1.wait()
+  for i in p1.communicate()[0].decode().split('\n'):
+   if i.find(self.mountpoint)>0:
+    return True
+  return False
+  
+ def mount(self):
+  cmd=['/sbin/mount', self.mountpoint]
+  p1 = Popen(cmd, stdout=PIPE, stderr=PIPE)
+  #p1.wait()
+ 
+ def umount(self, *f):
+  if f:
+   cmd=['/sbin/umount', '-f', self.mountpoint]
+  else:
+   cmd=['/sbin/umount', self.mountpoint]
+  p1 = Popen(cmd, stdout=PIPE, stderr=PIPE)
+ 
+ def wake(self):
+  cmd = ['/sbin/wol',self.mac]
+  awake = self.ping()
+  question="{} nie jest włączony. Obudzić?[t/n]".format(self.name)
+  if not awake:
+   answer=input(question)
+   if answer == 't':
+    p1 = Popen(cmd, stdout=PIPE, stderr=PIPE)
+    print(f"Czekam na obudzenie {self.name}...")
+    while not awake:
+     awake = self.ping()
+  if awake:
+   print(f"Komputer {self.name} wśród żywych.")
+   return True
+  elif not awake and answer == 'n':
+   print(f"Budzenie śpiocha {self.name} na Twoje życzenie się nie dokonało...")
+   return False
+  else:
+   print(f"{self.name} miał moje prośby o powstanie w życi...")
+   return False
+
+def find_i(obj,search):
+ for i,o in enumerate(obj):
+  if o.short == search:
+   return i
+ print("ERROR: PC not found!")
+ exit()
+
+pcs=[]
+#End do not change
+##################################################################################################
+#Enter computer details here 
+pcs.append(pc('M','Minix', '192.168.178.13', '00:12:3F:C4:A8:7E','/run/media/lukaszpe/Minix'))
+pcs.append(pc('S','ŁEPskiSerwer', '192.168.178.12', '00:18:8B:26:8C:D6','/run/media/lukaszpe/ŁEPskiSerwer'))
+##################################################################################################
+#Start do not change
+def info():
+ print("Nie ma takiej opcji. Wpisz podepnij -h lub podepnij --help, by uzyskać pomoc.")
+
+parser = argparse.ArgumentParser(description="Monter i wybudzacz serwerów",
+                                 formatter_class=argparse.RawDescriptionHelpFormatter,
+                                 epilog=xtra_nfo)
+parser.add_argument("-m", "--montuj", nargs="*", dest="Podłącz", help="Budzenie PC i montowanie udziału NFS")
+parser.add_argument("-o", "--odmontuj", nargs="*", dest="Odłącz", help="Odmontowanie uddziału NFS")
+args = vars(parser.parse_args())
+
+for key in args.keys():
+ if args[key] is not None:
+  match key:
+   case "Podłącz":
+    for n,srv in enumerate(args[key]):
+     i=find_i(pcs,srv)
+     print(f"Rozpoczynam podłączanie komputera [{n+1}/{len(args[key])}]: {pcs[i].name}")
+     if not pcs[i].mounted() and pcs[i].wake():
+      pcs[i].mount()
+     if pcs[i].mounted():
+      print(f"{pcs[i].name} zamontowany w {pcs[i].mountpoint}")
+     if not pcs[i].mounted() and not pcs[i].ping():
+      print(f"{pcs[i].name} nie został włączony i nie jest zamontowany")
+   case "Odłącz":
+    for n,srv in enumerate(args[key]):
+     i=find_i(pcs,srv)
+     print(f"Odłączam komputer [{n+1}/{len(args[key])}]: {pcs[i].name}")
+     ping = pcs[i].ping()
+     if ping and pcs[i].mounted():
+      pcs[i].umount()
+      if not pcs[i].mounted():
+       print(f"{pcs[i].name} został odmontowany z {pcs[i].mountpoint}")
+     elif not ping and pcs[i].mounted():
+      print(f"{pcs[i].name} zostanie siłowo odmontowany od systemu plików z {pcs[i].mountpoint}")
+      pcs[i].umount(True)
+      if not pcs[i].mounted():
+       print(f"{pcs[i].name} został siłowo odmontowany z {pcs[i].mountpoint}")
+     else:
+      print("Coś się sypnęło...")
+   case _:
+    info()
+#Sorry, program end   
+##################################################################################################

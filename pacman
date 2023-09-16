@@ -39,6 +39,7 @@ dosfstools
 doublecmd-qt5
 dtc
 dunst
+easytag
 efibootmgr
 egl-wayland
 endeavour
@@ -79,6 +80,7 @@ gnome-contacts
 gnome-devel-docs
 gnome-dictionary
 gnome-disk-utility
+gnome-flashback
 gnome-font-viewer
 gnome-games
 gnome-keyring
@@ -144,6 +146,7 @@ iagno
 intel-ucode
 iw
 jdk-openjdk
+kid3
 kitty
 lazarus
 lib32-sdl2
@@ -151,6 +154,7 @@ lib32-sdl2_image
 lib32-sdl2_mixer
 lib32-sdl2_ttf
 libdvdcss
+librecad
 libreoffice-fresh
 libreoffice-fresh-pl
 libsixel
@@ -215,8 +219,6 @@ python-pip
 python-psutil
 python-pygame-sdl2
 python-pyqt5
-qgnomeplatform-qt5
-qgnomeplatform-qt6
 qt5-3d
 qt5-charts
 qt5-connectivity

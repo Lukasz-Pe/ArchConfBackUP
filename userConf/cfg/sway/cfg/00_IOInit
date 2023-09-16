@@ -10,7 +10,9 @@ output $MCentralny pos 1080 0
 output $MPrawy pos 3000 0 res 1920x1080 transform 270
 # output $MPrawy transform 270
 
-set $wallpapers_path $HOME/Obrazy/Tapety 
+output * bg #000000 solid_color
+
+set $wallpapers_path $HOME/Obrazy/Tapety/AR
 output $MLewy bg `find $wallpapers_path -type f | shuf -n 1` fill
 output $MCentralny bg `find $wallpapers_path -type f | shuf -n 1` fill
 output $MPrawy bg `find $wallpapers_path -type f | shuf -n 1` fill

@@ -140,7 +140,7 @@ bindsym $mod+$binding_take_up move workspace to output up
 bindsym $mod+$binding_take_right move workspace to output right
 
 ## Modify // Vertical Window Orientation // <> v ##
-set $binding_split_v v
+set $binding_split_v $alt+v
 bindsym $mod+$binding_split_v split vertical
 
 ## Modify // Horizontal Window Orientation // <> g ##
@@ -164,11 +164,11 @@ set $binding_move_scratchpad Ctrl+m
 bindsym $mod+$binding_move_scratchpad move to scratchpad
 
 ## Modify // Tile/Float Focus Toggle // <><Shift> t ##
-set $binding_focus_toggle Shift+t
+set $binding_focus_toggle $alt+f
 bindsym $mod+$binding_focus_toggle focus mode_toggle
 
 ## Modify // Window Layout Mode // <> t ##
-set $binding_layout_mode t
+set $binding_layout_mode $alt+l
 bindsym $mod+$binding_layout_mode layout toggle tabbed splith splitv
 
 ## Modify // Move Window to Workspace 1 - 10 // <><Shift> 0__9 ##

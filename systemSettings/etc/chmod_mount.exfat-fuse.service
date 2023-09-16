@@ -1,0 +1,10 @@
+[Unit]
+Description=CHMOD EXFAT FUSE
+User=root
+
+[Service]
+StandardOutput=journal
+ExecStart=/usr/bin/chmod u+s /usr/bin/mount.exfat-fuse
+
+[Install]
+WantedBy=multi-user.target
