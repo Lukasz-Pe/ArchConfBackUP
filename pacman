@@ -4,6 +4,8 @@ alsa-plugins
 alsa-utils
 android-tools
 arch-install-scripts
+audacity
+audacity-docs
 autoconf
 automake
 autorandr
@@ -164,6 +166,7 @@ lightsoff
 linux
 linux-firmware
 linux-headers
+lmms
 lsof
 lua-sdl2
 lutris
@@ -172,6 +175,8 @@ m4
 make
 mesa
 mesa-vdpau
+mp3splt
+mp3splt-gtk
 mutter
 mythes-de
 mythes-pl
@@ -185,12 +190,13 @@ net-tools
 network-manager-applet
 networkmanager
 nfs-utils
+nmap
 noto-fonts-emoji
 ntfs-3g
 ntp
 numlockx
-obs-studio
 obsidian
+okular
 openbsd-netcat
 openscad
 openssh
@@ -203,7 +209,6 @@ patch
 pavucontrol
 pax-utils
 picom
-pipewire-media-session
 pkgconf
 playerctl
 plymouth
@@ -360,6 +365,7 @@ w3m
 waybar
 wf-recorder
 which
+wireplumber
 wol
 wxwidgets-common
 wxwidgets-gtk3

@@ -11,6 +11,7 @@ elif test -f .sway
  then
  export MOZ_ENABLE_WAYLAND=1
  export QT_QPA_PLATFORM=wayland
+ #export QT_QPA_PLATFORM=xcb
  export QT_QPA_PLATFORMTHEME=gtk2
  #export XDG_CURRENT_DESKTOP=Unity
  export XDG_CURRENT_DESKTOP=Gnome

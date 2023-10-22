@@ -24,10 +24,10 @@ set $binding_restart Ctrl+r
 bindsym $mod+$binding_restart exec swaymsg reload
 
 ## Session // Logout // <><Shift> e ##
-set $binding_logout Shift+e
+#set $binding_logout Shift+e
 #set $program_logout kill -9 -1
-set $program_logout rofi -p -show p -modi p:'rofi-power-menu --choices=shutdown/reboot/logout' -m 2 -theme $theme_rofi
-bindsym $mod+$binding_logout exec $program_logout
+#set $program_logout rofi -p -show p -modi p:'rofi-power-menu --choices=shutdown/reboot/logout' -m 2 -theme $theme_rofi
+#bindsym $mod+$binding_logout exec $program_logout
 
 ## Session // Reboot // <><Shift> b ##
 set $binding_reboot Shift+b
