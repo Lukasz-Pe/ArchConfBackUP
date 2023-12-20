@@ -14,5 +14,5 @@ mkinitcpio -P
 echo "rutpwd\nrutpwd" | passwd 
 grub-install /dev/sda
 grub2-mkconfig -o /boot/grub2/grub.cfg
-pacman -Syyu  - --noconfirm < pacman
+pacman -Syyu  - --noconfirm --needed < pacman-light
 echo "123" | su - $user -c "echo \"123\nT\" | yay -Syyu - --noconfirm < yay" 
