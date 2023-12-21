@@ -11,3 +11,4 @@ cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 touch /boot/efi/startup.nsh
 echo 'bcf boot add 1 fs0:\EFI\GRUB\grubx64.efi "GRUB bootloader"' >> /boot/efi/startup.nsh
 echo 'exit' >> /boot/efi/startup.nsh
+systemctl enable NetworkManager
