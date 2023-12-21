@@ -1,8 +1,8 @@
 #!/bin/sh
-cp ./systemSettings/{group,locale.gen,locale.conf,vconsole.conf,hostname,hosts,mkinitcpio.conf,modprobe.d/vfio.conf,sudoers} /etc
-cp -R ./systemSettings/{chmod*,getty*} /etc/systemd/system/
-cp ./systemSettings/00-keyboard.conf X11/ /etc/X11/xorg.conf.d/
-cp ./systemSettings/{get,pod} /usr/bin/
+cp ./systemSettings/etc/{group,locale.gen,locale.conf,vconsole.conf,hostname,hosts,mkinitcpio.conf,modprobe.d/vfio.conf,sudoers} /etc
+cp -R ./systemSettings/etc/{chmod*,getty*} /etc/systemd/system/
+cp ./systemSettings/etc/00-keyboard.conf X11/ /etc/X11/xorg.conf.d/
+cp ./systemSettings/usrBin/{get,pod} /usr/bin/
 
 mkdir -p /run/media/lukaszpe/{BackUp,Skany,ŁEPskiSerwer,Minix}
 
