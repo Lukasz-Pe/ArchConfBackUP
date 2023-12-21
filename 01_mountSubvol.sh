@@ -1,6 +1,6 @@
 #!/bin/sh
 mount -o relatime,space_cache=v2,ssd,compress=lzo,subvol=@ /dev/sda2 /mnt
-mkdir -p /mnt/{boot,home,var/{log,cache/pacman/pkg},btrfs,tmp}
+mkdir -p /mnt/{boot/efi,home,var/{log,cache/pacman/pkg},btrfs,tmp}
 mount -o relatime,space_cache=v2,ssd,compress=lzo,subvol=@log /dev/sda2 /mnt/var/log
 mount -o relatime,space_cache=v2,ssd,compress=lzo,subvol=@pkg /dev/sda2 /mnt/var/cache/pacman/pkg
 mount -o relatime,space_cache=v2,ssd,compress=lzo,subvol=@tmp /dev/sda2 /mnt/tmp

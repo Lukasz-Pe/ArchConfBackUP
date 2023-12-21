@@ -1,9 +1,8 @@
 #!/bin/sh
-
-loadkeys pl
-setfont Lat2-Terminus16.psfu.gz -m 8859-2
-timedatectl set-ntp true
-
-echo "Przygotuj bpartycje przy pomocy parted lub fdisk.\n"
-echo "I wywołaj skrypt 01_pacstrap.sh."
-echo "Zmień lokację instalacji GRUBa w pliku 02_installArch.sh!"
+mount /dev/sda2 /mnt
+btrfs sub cr /mnt/@
+btrfs sub cr /mnt/@tmp
+btrfs sub cr /mnt/@log
+btrfs sub cr /mnt/@pkg
+btrfs sub cr /mnt/@snapshots
+umount /mnt
