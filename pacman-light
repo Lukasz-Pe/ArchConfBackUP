@@ -9,12 +9,12 @@ nano
 tldr
 base-devel
 git
-intel-ucode
 efibootmgr
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
 linux-headers
+intel-ucode
 code
 xdg-desktop-portal-wlr
 xorg-xwayland
