@@ -2,6 +2,9 @@ linux
 linux-firmware
 linux-headers
 btrfs-progs
+code
+xdg-desktop-portal-wlr
+xorg-xwayland
 sudo
 git
 gitg
