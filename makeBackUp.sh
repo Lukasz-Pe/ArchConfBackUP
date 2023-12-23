@@ -2,7 +2,7 @@
 #User setting backup
 HomeDir="/home/lukaszpe"
 mkdir -p userConf/cfg
-cp -R  $HomeDir/.config/{alacritty,gtk-*,mimeapps.list,pavucontrol.ini,PrusaSlicer,sway,waybar,yay} ./userConf/cfg
+cp -R  $HomeDir/.config/{alacritty,gtk-*,mimewyapps.list,pavucontrol.ini,PrusaSlicer,sway,waybar,yay} ./userConf/cfg
 cp -R  $HomeDir/{.p10k.zsh,.zprofile,.zshrc} ./userConf
 #System settings backup
 mkdir -p systemSettings/{etc,usrBin}
