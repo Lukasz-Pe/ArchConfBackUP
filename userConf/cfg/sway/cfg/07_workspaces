@@ -33,16 +33,16 @@ set $ws9_key   9
 set $ws10_key  0
 
 #Define workspaces and their ouputs
-workspace $ws1 output $MCentralny
-workspace $ws2 output $MCentralny
-workspace $ws3 output $MCentralny
-workspace $ws4 output $MCentralny
-workspace $ws5 output $MCentralny
-workspace $ws6 output $MCentralny
-workspace $ws7 output $MCentralny
-workspace $ws8 output $MCentralny
-workspace $ws9 output $MLewy
-workspace $ws10 output $MPrawy
+#workspace $ws1 output $MCentralny
+#workspace $ws2 output $MCentralny
+#workspace $ws3 output $MCentralny
+#workspace $ws4 output $MCentralny
+#workspace $ws5 output $MCentralny
+#workspace $ws6 output $MCentralny
+#workspace $ws7 output $MCentralny
+#workspace $ws8 output $MCentralny
+#workspace $ws9 output $MLewy
+#workspace $ws10 output $MPrawy
 
 # Define workspaces for certain apps
 for_window [app_id="pavucontrol"] floating enable, resize set 800 600
@@ -52,8 +52,8 @@ for_window [app_id="blueman-manager"] floating enable, resize set 640 480
 assign [app_id="geary"]  $ws8
 assign [app_id="org.gnome.Calendar"]  $ws8
 #assign [class="TradingView"] $ws1
-#assign [app_id="firefox"]  $ws1
-assign [app_id="Mercury Browser"]  $ws1
+assign [app_id="firefox"]  $ws1
+#assign [app_id="Mercury Browser"]  $ws1
 #assign [class="Thorium-browser"]  $ws1
 assign [app_id="looking-glass-client"] $ws2
 assign [class="terminal64.exe"] $ws3

@@ -5,13 +5,13 @@ exec --no-startup-id playerctld
 #exec xset s off
 #exec xset -dpms
 #exec thunderbird;
-exec geary
-exec gnome-calendar
+#exec geary
+#exec gnome-calendar
 #exec tradingview
 
 #exec_always --no-startup-id xrdb -l ~/.Xresources
 #exec --no-startup-id swaync
-exec --no-startup-id blueman-applet &
+exec --no-startup-id blueman-tray
 exec --no-startup-id /usr/bin/nm-applet --indicator &
 exec --no-startup-id udiskie -ant &
 exec --no-startup-id /usr/bin/rofication-daemon.py

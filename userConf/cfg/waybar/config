@@ -3,7 +3,7 @@
 
 "layer": "top",
 "position": "top",
-"output":"HDMI-A-1",
+"output":"LVDS-1",
 
 "include":[
 	"~/.config/waybar/modules",
@@ -45,43 +45,4 @@
 	"custom/separator",
 	"tray"
 ]
-},
-{
-// Side monitors
-
-"layer": "top",
-"position": "top",
-"output":"!HDMI-A-1",
-
-"include":[
-	"~/.config/waybar/modules",
-],
-
-"modules-left": [
-	"sway/mode",
-	"sway/workspaces",
-	"custom/arrowright_black",
-	"sway/window"
-],
-
-"modules-center": [
-	"custom/arrowleft_red",
-	"clock#date",
-	"clock#time",
-	"custom/arrowright_red",
-],
-
-"modules-right": [
-	"custom/arrowleft",
-	"custom/notification",
-	"custom/separator",
-	"pulseaudio",
-	"custom/separator",
-	"sway/language",
-	"custom/separator",
-	"tray"
-]
 }]
-
-# vi:ft=jsonc
-

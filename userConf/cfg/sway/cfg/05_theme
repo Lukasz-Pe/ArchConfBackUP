@@ -3,7 +3,7 @@ set $theme_icon          buuf-nestort
 set $theme_desktop_wallpaper   null
 set $theme_rofi          ~/.config/sway/cfg/rofi.rasi
 set $theme_terminal_scrollbar never
-
+seat seat0 xcursor_theme Night-Diamond-Red
 ###############################################################################
 # i3 Appearance and Behavior
 ###############################################################################

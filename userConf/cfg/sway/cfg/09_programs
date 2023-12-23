@@ -1,14 +1,14 @@
 set $binding_browser Shift+Return
-#set $program_browser firefox
+set $program_browser firefox
 #set $program_browser thorium-browser
-set $program_browser mercury-browser
+#set $program_browser mercury-browser
 ## Launch // Browser // <><Shift> Enter ##
 bindsym $mod+$binding_browser exec $program_browser
 
-set $binding_tv T
-set $program_tv tradingview
+set $binding_code C
+set $program_code code
 ## Launch // Browser // <><Shift> Enter ##
-bindsym $mod+$binding_tv exec $program_tv
+bindsym $mod+$binding_code exec $program_code
 
 set $binding_multimediaPlayer V
 set $program_multimediaPlayer vlc
@@ -42,7 +42,7 @@ set $binding_email e
 set $program_email geary
 bindsym $mod+$binding_email exec $program_email
 
-set $binding_calendar c
+set $binding_calendar Ctrl+c
 set $program_calendar gnome-calendar
 bindsym $mod+$binding_calendar exec $program_calendar
 
