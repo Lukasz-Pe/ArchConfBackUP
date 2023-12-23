@@ -11,4 +11,8 @@ cp /boot/efi/EFI/GRUB/grubx64.efi /boot/efi/EFI/BOOT/BOOTX64.EFI
 touch /boot/efi/startup.nsh
 echo 'bcf boot add 1 fs0:\EFI\GRUB\grubx64.efi "GRUB bootloader"' >> /boot/efi/startup.nsh
 echo 'exit' >> /boot/efi/startup.nsh
+LineN=$(awk '\[multilib\]/{print NR+1;exit}' /etc/pacman.conf)
+sed -e '\[multilib\]/s/^#//' -e $LineN' s/^#//' /etc/pacman.conf
 systemctl enable NetworkManager
+useradd -m -G wheel,video -s /bin/zsh $1
+echo "Set passwords for your user and root!"
