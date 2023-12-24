@@ -1,6 +1,6 @@
 #!/bin/sh
 #import all variables
-source ./01_basicData.sh
+source ./00_basicData.sh
 
 #cp ./systemSettings/etc/{group,locale.gen,locale.conf,vconsole.conf,hostname,hosts,mkinitcpio.conf,modprobe.d/vfio.conf,sudoers} /etc
 
