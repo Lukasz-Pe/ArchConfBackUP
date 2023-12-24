@@ -30,6 +30,4 @@ swapon $disk"2"
 pacstrap /mnt base linux linux-firmware btrfs-progs networkmanager grub grub-btrfs nano tldr base-devel git efibootmgr zsh zsh-autosuggestions zsh-syntax-highlighting linux-headers intel-ucode
 genfstab -U /mnt >> /mnt/etc/fstab
 cp -R ../ArchConfBackUP /mnt/home/
-echo "Comment out or delete line containing '/' in /mnt/etc/fstab!"
-echo "Check: https://github.com/Deebble/arch-btrfs-install-guide#fstab"
-echo "or ReadMe.md in directory"
+arch-chroot /mnt
