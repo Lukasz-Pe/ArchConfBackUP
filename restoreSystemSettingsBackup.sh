@@ -1,9 +1,29 @@
 #!/bin/sh
+#import all variables
+source 01_basicData.sh
+
 #cp ./systemSettings/etc/{group,locale.gen,locale.conf,vconsole.conf,hostname,hosts,mkinitcpio.conf,modprobe.d/vfio.conf,sudoers} /etc
-cp ./systemSettings/etc/{locale.gen,locale.conf,vconsole.conf,hostname,hosts,mkinitcpio.conf,sudoers} /etc
-#cp -R ./systemSettings/etc/{chmod*,getty*} /etc/systemd/system/
+
+cp ./systemSettings/etc/{mkinitcpio.conf,sudoers} /etc
+cp -R ./systemSettings/etc/{chmod*,getty*} /etc/systemd/system/
 #cp ./systemSettings/etc/00-keyboard.conf X11/ /etc/X11/xorg.conf.d/
 cp ./systemSettings/usrBin/{get,pod} /usr/bin/
+touch /etc/{locale.conf,hostname,hosts,vconsole.conf}
+#locale
+echo "LANG="$locale >> /etc/locale.conf
+#vconsole
+echo "KEYMAP=$keymap" >> /etc/vconsole.conf
+echo "FONT=$font" >> /etc/vconsole.conf
+echo "FONT_MAP=$font_map" >> /etc/vconsole.conf
+#host file
+echo $hostName >> /etc/hostname
+#hosts  file
+echo "# Static table lookup for hostnames." >> /etc/hosts
+echo "# See hosts(5) for details." >> /etc/hosts
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.1.1 $hostName.localdomain" >> /etc/hosts
+echo "in $hostName" >> /etc/hosts
 
 mkdir -p /run/media/lukaszpe/{BackUp,Skany,ŁEPskiSerwer,Minix}
 
