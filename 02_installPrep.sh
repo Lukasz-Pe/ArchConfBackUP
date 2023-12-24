@@ -29,5 +29,6 @@ swapon $disk"2"
 #Pacstrap and FSTAB
 pacstrap /mnt base linux linux-firmware btrfs-progs networkmanager grub grub-btrfs nano tldr base-devel git efibootmgr zsh zsh-autosuggestions zsh-syntax-highlighting linux-headers intel-ucode
 genfstab -U /mnt >> /mnt/etc/fstab
-cp -R ../ArchConfBackUP /mnt/home/
+cd ..
+cp -R * /mnt/home
 arch-chroot /mnt
