@@ -1,5 +1,6 @@
 #Set username
 user=lukaszpe
+userGroup=$user
 #set hostname (name of PC in network)
 hostName=vmEGM
 #disk to be partitioned
