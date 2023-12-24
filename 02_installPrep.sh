@@ -1,6 +1,6 @@
 #!/bin/sh
 #import all variables
-source 01_basicData.sh
+source ./01_basicData.sh
 #Partitioning
 sgdisk -og $disk
 sgdisk -n 1:0:+$EFIsize -n 2:0:$swapSize -n 3:0:+$sysSize -n 4:0:0 $disk

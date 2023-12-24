@@ -1,6 +1,6 @@
 #!/bin/sh
 #import all variables
-source 01_basicData.sh
+source ./01_basicData.sh
 #Set timezone
 ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 hwclock --systohc
