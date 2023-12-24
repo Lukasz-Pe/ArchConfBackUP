@@ -17,6 +17,7 @@ git clone https://aur.archlinux.org/yay.git
 cd ~/yay
 makepkg -si
 #Install aur packages
+cd /home/ArchConfBackUP
 yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
