@@ -4,7 +4,7 @@ source ./01_basicData.sh
 #Set timezone
 ln -sf /usr/share/zoneinfo/$region/$city /etc/localtime
 hwclock --systohc
-./restoreSystemSettingsBackup.sh
+source ./restoreSystemSettingsBackup.sh
 locale-gen
 mkinitcpio -P
 grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
