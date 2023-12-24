@@ -1,6 +1,6 @@
 #!/bin/sh
 #import all variables
-source ./01_basicData.sh
+source ./00_basicData.sh
 #User setting restore
 HomeDir="/home/$user"
 mkdir -p $HomeDir/.config/{alacritty,PrusaSlicer,sway,waybar,yay,gtk-{2.0,3.0,4.0}}
