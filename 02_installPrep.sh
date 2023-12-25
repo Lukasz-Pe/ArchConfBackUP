@@ -2,6 +2,7 @@
 #import all variables
 source ./00_basicData.sh
 #Partitioning
+sgdisk -Z $disk
 sgdisk -og $disk
 sgdisk -n 1:0:+$EFIsize -n 2:0:$swapSize -n 3:0:+$sysSize -n 4:0:0 $disk -t 1:ef00
 mkfs.vfat -F 32 -n EFI $disk"1"
