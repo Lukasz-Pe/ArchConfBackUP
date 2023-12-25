@@ -31,4 +31,6 @@ pacstrap /mnt base linux linux-firmware btrfs-progs networkmanager grub grub-btr
 genfstab -U /mnt >> /mnt/etc/fstab
 cd /mnt/home
 git clone https://github.com/Lukasz-Pe/ArchConfBackUP.git
+cd ArchConfBackUP && chmod +x *sh
+sed -i 's/.*,subvol=\@\t/# &/' /mnt/etc/fstab
 arch-chroot /mnt
