@@ -28,7 +28,7 @@ mount $disk"1" /mnt/boot/efi
 mount $disk"4" /mnt/home
 swapon $disk"2"
 #Pacstrap and FSTAB
-pacstrap /mnt base linux linux-firmware btrfs-progs networkmanager grub grub-btrfs nano tldr base-devel git efibootmgr zsh zsh-autosuggestions zsh-syntax-highlighting linux-headers intel-ucode
+pacstrap -K /mnt base linux linux-firmware btrfs-progs networkmanager grub grub-btrfs nano tldr base-devel git efibootmgr zsh zsh-autosuggestions zsh-syntax-highlighting linux-headers intel-ucode
 genfstab -U /mnt >> /mnt/etc/fstab
 cd /mnt/home
 git clone https://github.com/Lukasz-Pe/ArchConfBackUP.git
