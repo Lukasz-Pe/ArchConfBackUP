@@ -23,3 +23,4 @@ yay -Y --gendb
 yay -Syu --devel
 yay -Y --devel --save
 yay -Syyu --noconfirm $(<yay)
+gtk-theme-switch2 /usr/share/themes/Flat-Remix-GTK-Red-Dark
