@@ -11,6 +11,7 @@ cp ./systemSettings/usrBin/{get,pod} /usr/bin/
 touch /etc/{locale.conf,hostname,hosts,vconsole.conf}
 #locale
 echo "LANG="$locale >> /etc/locale.conf
+sed -i "/$locale/s/^#//" /etc/locale.gen
 #vconsole
 echo "KEYMAP=$keymap" >> /etc/vconsole.conf
 echo "FONT=$font" >> /etc/vconsole.conf
