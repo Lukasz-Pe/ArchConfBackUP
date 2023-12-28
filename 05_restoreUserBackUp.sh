@@ -11,6 +11,7 @@ find $HomeDir -exec chown $user:$userGroup {} +
 find $HomeDir -type d -exec chmod 755 {} +
 find $HomeDir -type f -exec chmod 644 {} +
 find $HomeDir -exec sed -i "/s/lukaszpe/$user/g" {} +
+chmod +x $HomeDir/.config/waybar/{not,update}
 #YAY install
 cd ~
 git clone https://aur.archlinux.org/yay.git

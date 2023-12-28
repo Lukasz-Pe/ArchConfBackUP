@@ -7,7 +7,7 @@ source ./00_basicData.sh
 cp ./systemSettings/etc/{mkinitcpio.conf,sudoers} /etc
 cp -R ./systemSettings/etc/{chmod*,getty*} /etc/systemd/system/
 #cp ./systemSettings/etc/00-keyboard.conf X11/ /etc/X11/xorg.conf.d/
-cp ./systemSettings/usrBin/{get,pod} /usr/bin/
+cp ./systemSettings/usrBin/{get,pod,rofication-gui-lukaszpe.py} /usr/bin/
 touch /etc/{locale.conf,hostname,hosts,vconsole.conf}
 #locale
 echo "LANG="$locale >> /etc/locale.conf
