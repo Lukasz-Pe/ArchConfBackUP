@@ -17,8 +17,8 @@ echo "KEYMAP=$keymap" >> /etc/vconsole.conf
 echo "FONT=$font" >> /etc/vconsole.conf
 echo "FONT_MAP=$font_map" >> /etc/vconsole.conf
 #extract 
-cp ./systemSettings/Night-Diamond-Red.tar.gz /usr/share/icons
-cd /usr/share/icons
+cp ./systemSettings/Night-Diamond-Red.tar.gz /usr/share/icons/
+cd /usr/share/icons/
 tar -xvf Night-Diamond-Red.tar.gz
 rm Night-Diamond-Red.tar.gz
 #host file
