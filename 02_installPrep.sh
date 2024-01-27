@@ -7,8 +7,8 @@ sgdisk -og $disk
 sgdisk -n 1:0:+$EFIsize -n 2:0:$swapSize -n 3:0:+$sysSize -n 4:0:0 $disk -t 1:ef00
 mkfs.vfat -F 32 -n EFI $disk"1"
 mkswap $disk"2"
-mkfs.btrfs -f $disk"3"
-mkfs.btrfs -f $disk"4"
+mkfs.btrfs -f -d single $disk"3"
+mkfs.btrfs -f -d single $disk"4"
 #Subvolume creation
 mount $disk"3" /mnt
 btrfs sub cr /mnt/@
