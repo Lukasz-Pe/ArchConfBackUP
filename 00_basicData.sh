@@ -2,7 +2,7 @@
 user=lukaszpe
 userGroup=$user
 #set hostname (name of PC in network)
-hostName=vmEGM
+hostName=EGM-PC
 #disk to be partitioned
 disk='/dev/sda'
 #region and city for timezone as per 
@@ -13,9 +13,9 @@ city='Berlin'
 #size of EFi bartition for UEFI system
 EFIsize='250M'
 #size of Swap partition
-swapSize='12G'
+swapSize='34G'
 #size of main(/) partition, home takes all that is left
-sysSize='30G'
+sysSize='100G'
 #locale sttings
 locale='pl_PL.UTF-8'
 #vconsole settings
