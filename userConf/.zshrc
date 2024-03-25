@@ -4,27 +4,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-#StartUpCmd:
-clear && neofetch
-
-
-#Aliasy
-SIGNAL='Wysyłam sygnał zakończenia akutalizacji.'
-alias susu='sudo -i --preserve-env=HOME'
-alias gn="cd /home/lukaszpe/Dokumenty/Obsidian/notatki"
-alias gg="gn && git pull"
-alias pull="git pull"
-alias ww="git add . && git commit -a --allow-empty-message -m '' && git push; exit"
-alias wy="git add . && git commit -a --allow-empty-message -m '' && git push"
-alias pakty="sudo pacman -Syyu --noconfirm; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias pakt="sudo pacman -Syyu; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias akty="sudo pacman -Syy --noconfirm; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias akt="sudo pacman -Syy; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias pyaykoy="yay -Syyu --noconfirm; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias pyayko="yay -Syyu; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias yaykoy="yay -Syy --noconfirm; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias yayko="yay -Syy; echo $SIGNAL; i3-msg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
-alias clne="clear && neofetch"
 
 #Klawisze
 bindkey  "^[[H"   beginning-of-line
@@ -56,3 +35,44 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Created by `pipx` on 2024-03-06 18:35:54
+export PATH="$PATH:/home/lukaszpe/.local/bin"
+
+#StartCMD
+lol()
+{
+    if [ -t 1 ]; then
+        "$@" | lolcat
+    else
+        "$@"
+    fi
+}
+#bind 'RETURN: "\e[1~lol \e[4~\n"'
+COMMANDS=(ls cat neofetch git pwd)
+
+# for COMMAND in "${COMMANDS[@]}"; do
+#    alias "${COMMAND}=${COMMAND} | lolcat"
+#    alias ".${COMMAND}=$(which ${COMMAND})"
+# done
+
+#Aliasy
+SIGNAL='Wysyłam sygnał zakończenia akutalizacji.'
+alias susu='sudo -i --preserve-env=HOME'
+alias gn="cd /home/lukaszpe/Dokumenty/Obsidian/notatki"
+alias gg="gn && git pull"
+alias gz="git pull"
+alias gw="git push"
+alias ww="git add . && git commit -a --allow-empty-message -m '' && git push; exit"
+alias wy="git add . && git commit -a --allow-empty-message -m '' && git push"
+alias pakty="sudo pacman -Syyu --noconfirm; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias pakt="sudo pacman -Syyu; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias akty="sudo pacman -Syy --noconfirm; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias akt="sudo pacman -Syy; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias pyaykoy="yay -Syyu --noconfirm; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias pyayko="yay -Syyu; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias yaykoy="yay -Syy --noconfirm; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias yayko="yay -Syy; echo $SIGNAL; swaymsg  exec \"pkill -SIGRTMIN+10 waybar\" > /dev/null"
+alias clfne='clear && neofetch && lol figlet "lukaszpe@EGM"'
+alias clne="clear && neofetch"
+clne

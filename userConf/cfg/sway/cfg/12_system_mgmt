@@ -37,3 +37,7 @@ set $binding_notification_ui n
 #set $program_notification_ui swaync-client -t
 set $program_notification_ui rofication-gui-lukaszpe.py
 bindsym $mod+$binding_notification_ui exec $program_notification_ui $theme_rofi
+
+## Toggle side displays on/off
+set $binding_side_displays_toggle s
+bindsym $mod+$binding_side_displays_toggle output $MLewy toggle; output $MPrawy toggle

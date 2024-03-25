@@ -33,28 +33,43 @@ set $ws9_key   9
 set $ws10_key  0
 
 #Define workspaces and their ouputs
-#workspace $ws1 output $MCentralny
-#workspace $ws2 output $MCentralny
-#workspace $ws3 output $MCentralny
-#workspace $ws4 output $MCentralny
-#workspace $ws5 output $MCentralny
-#workspace $ws6 output $MCentralny
-#workspace $ws7 output $MCentralny
-#workspace $ws8 output $MCentralny
-#workspace $ws9 output $MLewy
-#workspace $ws10 output $MPrawy
+workspace $ws1 output $MCentralny
+workspace $ws2 output $MCentralny
+workspace $ws3 output $MCentralny
+workspace $ws4 output $MCentralny
+workspace $ws5 output $MCentralny
+workspace $ws6 output $MCentralny
+workspace $ws7 output $MCentralny
+workspace $ws8 output $MCentralny
+workspace $ws9 output $MCentralny
+workspace $ws10 output $MCentralny
+workspace $ws11 output $MLewy
+workspace $ws13 output $MLewy
+workspace $ws15 output $MLewy
+workspace $ws17 output $MLewy
+workspace $ws19 output $MLewy
+workspace $ws12 output $MPrawy
+workspace $ws14 output $MPrawy
+workspace $ws16 output $MPrawy
+workspace $ws18 output $MPrawy
+workspace $ws20 output $MPrawy
 
 # Define workspaces for certain apps
 for_window [app_id="pavucontrol"] floating enable, resize set 800 600
 for_window [app_id="org.gnome.Calculator"] floating enable
+for_window [app_id="mate-calculator"] floating enable, resize set 640 480
 for_window [app_id="blueman-manager"] floating enable, resize set 640 480
-#assign [app_id="thunderbird"]  $ws4
-assign [app_id="geary"]  $ws8
-assign [app_id="org.gnome.Calendar"]  $ws8
+#assign [app_id="thunderbird"]  $ws11
+assign [app_id="betterbird"] $ws11
+assign [app_id="geary"]  $ws11
+assign [app_id="org.gnome.Calendar"]  $ws11
 #assign [class="TradingView"] $ws1
+assign [class="Opera"] $ws1
 assign [app_id="firefox"]  $ws1
 #assign [app_id="Mercury Browser"]  $ws1
 #assign [class="Thorium-browser"]  $ws1
 assign [app_id="looking-glass-client"] $ws2
 assign [class="terminal64.exe"] $ws3
 assign [class="Skype"] $ws10
+assign [class="discord"] $ws12
+assign [app_id="lutris"] $ws12

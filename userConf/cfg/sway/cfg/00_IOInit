@@ -1,21 +1,22 @@
 #Names
+set $MLewy DP-2
 #set $MLewy DP-1
-set $MCentralny Virtual-1
-#set $MPrawy DP-3
+set $MCentralny DP-1
+set $MPrawy DP-3
+#set $MPrawy DP-1
+set $MCentralny DP-1
 
 #Output cfg
-#output $MLewy pos 0 0 res 1920x1080 transform 90
-# output $MLewy transform 90
-output $MCentralny res 1360x768 pos 0 0
-#output $MPrawy pos 3000 0 res 1920x1080 transform 270
-# output $MPrawy transform 270
+output $MLewy pos 0 0 res 1920x1080 transform 90
+output $MCentralny res 1920x1080 pos 1080 0
+output $MPrawy pos 3000 0 res 1920x1080 transform 270
 
 output * bg #313131 solid_color
 
-#set $wallpapers_path $HOME/Obrazy/Tapety/{AR,DeTomaso,Pagani}
-#output $MLewy bg `find $wallpapers_path -type f | shuf -n 1` fill
-#output $MCentralny bg `find $wallpapers_path -type f | shuf -n 1` fill
-#output $MPrawy bg `find $wallpapers_path -type f | shuf -n 1` fill
+set $wallpapers_path $HOME/Obrazy/Tapety/{AR,DeTomaso,Pagani}
+output $MLewy bg `find $wallpapers_path -type f | shuf -n 1` fill
+output $MCentralny bg `find $wallpapers_path -type f | shuf -n 1` fill
+output $MPrawy bg `find $wallpapers_path -type f | shuf -n 1` fill
 
 # Keyboard def
 input * {

@@ -14,17 +14,33 @@ export XDG_CURRENT_DESKTOP=Unity
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
  config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
  if [ ! -f "$config" ]; then exit 1; fi
- gnome_schema="org.gnome.desktop.interface"
- gtk_theme="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
- icon_theme="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
- cursor_theme="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
- font_name="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')"
- gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
- gsettings set "$gnome_schema" icon-theme "$icon_theme"
- gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
- gsettings set "$gnome_schema" font-name "$font_name"
+ export GNOME_SCHEMA="org.gnome.desktop.interface"
+ export GTK_THEME="$(grep 'gtk-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+ export ICON_THEME="$(grep 'gtk-icon-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+ export CURSOR_THEME="$(grep 'gtk-cursor-theme-name' "$config" | sed 's/.*\s*=\s*//')"
+ export FONT_NAME="$(grep 'gtk-font-name' "$config" | sed 's/.*\s*=\s*//')"
+ gsettings set "$GNOME_SCHEMA" gtk-theme "$GTK_THEME"
+ gsettings set "$GNOME_SCHEMA" icon-theme "$ICON_THEME"
+ gsettings set "$GNOME_SCHEMA" cursor-theme "$CURSOR_THEME"
+ gsettings set "$GNOME_SCHEMA" font-name "$FONT_NAME"
  dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
  exec sway
 fi
 
 [[ -f ~/.zshrc ]] && . ~/.zshrc
+
+# Created by `pipx` on 2024-03-06 18:35:54
+export PATH="$PATH:/home/lukaszpe/.local/bin"
+
+#echo "Start" | lolcat
+
+#lol()
+#{
+#    if [ -t 1 ]; then
+#        "$@" | lolcat
+#    else
+#        "$@"
+#    fi
+#}
+#bind 'RETURN: "\e[1~lol \e[4~\n"'
+#export -f lol

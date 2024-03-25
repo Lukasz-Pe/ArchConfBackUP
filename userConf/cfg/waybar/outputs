@@ -2,7 +2,7 @@
 //Main Monitor
 "layer": "top",
 "position": "top",
-"output":"HDMI-A-1",
+"output":"DP-1",
 
 "modules-left": [
 	"sway/mode",
@@ -44,7 +44,7 @@
 // Side monitors
 "layer": "top",
 "position": "top",
-"output":"!HDMI-A-1",
+"output":"!DP-1",
 
 
 "modules-left": [

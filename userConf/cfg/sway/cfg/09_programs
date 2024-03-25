@@ -1,4 +1,5 @@
 set $binding_browser Shift+Return
+#set $program_browser opera --lang=pl %U
 set $program_browser firefox
 #set $program_browser thorium-browser
 #set $program_browser mercury-browser
@@ -31,15 +32,17 @@ set $program_launcher_window rofi -p -show window -m 2 -theme
 bindsym $mod+$binding_launcher_window exec $program_launcher_window $theme_rofi
 
 set $binding_calculator XF86Calculator
+#set $program_calcualtor mate-calculator
 set $program_calcualtor gnome-calculator
 bindsym $binding_calculator exec $program_calcualtor
 
-#set $binding_email_and_calendar p
+#set $binding_email_and_calendar m
 #set $program_email_and_calendar thunderbird
 #bindsym $alt+$binding_email_and_calendar exec $binding_email_and_calendar
 
 set $binding_email e
-set $program_email geary
+#set $program_email geary
+set $program_email betterbird
 bindsym $mod+$binding_email exec $program_email
 
 set $binding_calendar Ctrl+c
